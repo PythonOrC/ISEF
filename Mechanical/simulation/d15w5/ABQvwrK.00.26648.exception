@@ -1,0 +1,49 @@
+<Description>
+   ABAQUS/ABQvwrK rank 0 received the ABORT signal
+
+</Description>
+
+<Context>
+   ABQvwrK
+</Context>
+
+<Callstack>
+  1)  ucrtbase.dll                abort                                   
+  2)  ucrtbase.dll                terminate                               
+  3)  VCRUNTIME140_1.dll          _NLG_Return2                            
+  4)  VCRUNTIME140_1.dll          _NLG_Return2                            
+  5)  VCRUNTIME140_1.dll          _CxxFrameHandler4                       
+  6)  ntdll.dll                   RtlFindCharInUnicodeString              
+  7)  ntdll.dll                   RtlRaiseException                       
+  8)  KERNELBASE.dll              RaiseException                          
+  9)  VCRUNTIME140.dll            CxxThrowException                       
+ 10)  ABQSMAInbVwrIPC.dll         ipc_Socket::Close                       
+ 11)  ABQSMAInbVwrIPC.dll         ipc_Monitor::~ipc_Monitor               
+ 12)  ABQSMAInbVwrIPC.dll         SMAInbIpc_finalize                      
+ 13)  ABQSMAInbVwrIPC.dll         DllMain                                 
+ 14)  ABQSMAInbVwrIPC.dll         SMAInbVwrIPC_initializeC                
+ 15)  ntdll.dll                   RtlActivateActivationContextUnsafeFast  
+ 16)  ntdll.dll                   LdrShutdownProcess                      
+ 17)  ntdll.dll                   RtlExitUserProcess                      
+ 18)  KERNEL32.DLL                ExitProcess                             
+ 19)  ucrtbase.dll                exit                                    
+ 20)  ucrtbase.dll                exit                                    
+</Callstack>
+
+<Memory>
+   <Current>             170 MB </Current>
+   <Resident>            154 MB </Resident>
+   <Physical>          65445 MB </Physical>
+   <Limit>                 0 MB </Limit>
+   <Accessible>        65445 MB </Accessible>
+   <Allocator>            DL    </Allocator>
+</Memory>
+
+<Directories>
+  <current> D:\Personal\ISEF\Mechanical    </current> <free>    370 GB </free>   <used>   1492 GB </used> 
+     <temp> C:\Users\ethan\AppData\Local\Temp </temp>    <free>    337 GB </free>
+</Directories>
+
+<Installation>
+</Installation>
+

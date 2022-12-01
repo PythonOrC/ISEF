@@ -1,0 +1,487 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.openParasolid(fileName=
+    'D:/Personal/ISEF/Mechanical/simulation/d14w5/d14w5.x_t', topology=SOLID)
+mdb.models['Model-1'].PartFromGeometryFile(combine=False, dimensionality=
+    THREE_D, geometryFile=mdb.acis, name='d14w5', scale=1.0, type=
+    DEFORMABLE_BODY)
+mdb.models['Model-1'].Material(name='silicon')
+mdb.models['Model-1'].materials['silicon'].Depvar()
+mdb.models['Model-1'].materials['silicon'].Density(table=((0.0, ), ))
+del mdb.models['Model-1'].materials['silicon']
+mdb.models['Model-1'].Material(name='silicon')
+mdb.models['Model-1'].materials['silicon'].Density(table=((1.072e-09, ), ))
+mdb.models['Model-1'].materials['silicon'].Hyperelastic(materialType=ISOTROPIC, 
+    table=((0.090026, -0.0038806, 0.001524, 0.0, 0.0, 0.0), ), testData=OFF, 
+    type=YEOH, volumetricResponse=VOLUMETRIC_DATA)
+mdb.models['Model-1'].HomogeneousSolidSection(material='silicon', name=
+    'Section-1', thickness=None)
+mdb.models['Model-1'].parts['d14w5'].Set(cells=
+    mdb.models['Model-1'].parts['d14w5'].cells.getSequenceFromMask(('[#1 ]', ), 
+    ), name='Set-1')
+mdb.models['Model-1'].parts['d14w5'].SectionAssignment(offset=0.0, offsetField=
+    '', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Model-1'].parts['d14w5'].sets['Set-1'], sectionName='Section-1'
+    , thicknessAssignment=FROM_SECTION)
+mdb.models['Model-1'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='d14w5-1', part=
+    mdb.models['Model-1'].parts['d14w5'])
+mdb.models['Model-1'].StaticStep(maxNumInc=1000000, minInc=1e-08, name=
+    'air pump', previous='Initial')
+mdb.models['Model-1'].steps['air pump'].setValues(nlgeom=ON)
+mdb.models['Model-1'].steps['air pump'].setValues(initialInc=2.0, maxInc=2.0, 
+    timePeriod=2.0)
+mdb.models['Model-1'].rootAssembly.Surface(name='Surf-1', side1Faces=
+    mdb.models['Model-1'].rootAssembly.instances['d14w5-1'].faces.getSequenceFromMask(
+    ('[#401b4000 #50 ]', ), ))
+mdb.models['Model-1'].Pressure(amplitude=UNSET, createStepName='air pump', 
+    distributionType=UNIFORM, field='', magnitude=0.12, name='Load-1', region=
+    mdb.models['Model-1'].rootAssembly.surfaces['Surf-1'])
+mdb.models['Model-1'].parts['d14w5'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=160.0)
+mdb.models['Model-1'].parts['d14w5'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D20R, elemLibrary=STANDARD), ElemType(elemCode=C3D15, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D10H, elemLibrary=STANDARD)), 
+    regions=(mdb.models['Model-1'].parts['d14w5'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), ))
+mdb.models['Model-1'].parts['d14w5'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D20R, elemLibrary=STANDARD), ElemType(elemCode=C3D15, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D10H, elemLibrary=STANDARD)), 
+    regions=(mdb.models['Model-1'].parts['d14w5'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), ))
+mdb.models['Model-1'].parts['d14w5'].setMeshControls(elemShape=TET, regions=
+    mdb.models['Model-1'].parts['d14w5'].cells.getSequenceFromMask(('[#1 ]', ), 
+    ), technique=FREE)
+mdb.models['Model-1'].parts['d14w5'].generateMesh()
+mdb.models['Model-1'].parts['d14w5'].deleteMesh()
+mdb.models['Model-1'].parts['d14w5'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=128.0)
+mdb.models['Model-1'].parts['d14w5'].generateMesh()
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='d14', nodalOutputPrecision=SINGLE, 
+    numCpus=8, numDomains=8, numGPUs=0, numThreadsPerMpiProcess=1, queue=None, 
+    resultsFormat=ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=
+    0, waitMinutes=0)
+mdb.jobs['d14'].submit(consistencyChecking=OFF)
+mdb.jobs['d14']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'ethan-desktop', 'handle': 0, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(ERROR, {'phase': BATCHPRE_PHASE, 
+    'message': 'Process terminated by external request (SIGTERM or SIGINT received).', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(INTERRUPTED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis interrupted by external signal', 'jobName': 'd14'})
+mdb.jobs['d14']._Message(ERROR, {
+    'message': 'Analysis Input File Processor exited with an error - Please see the  d14.dat file for possible error messages if the file exists.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(JOB_ABORTED, {
+    'message': 'Analysis Input File Processor exited with an error - Please see the  d14.dat file for possible error messages if the file exists.', 
+    'jobName': 'd14'})
+del mdb.models['Model-1'].loads['Load-1']
+mdb.models['Model-1'].rootAssembly.Surface(name='Surf-2', side1Faces=
+    mdb.models['Model-1'].rootAssembly.instances['d14w5-1'].faces.getSequenceFromMask(
+    ('[#21d8000 #60 ]', ), ))
+mdb.models['Model-1'].Pressure(amplitude=UNSET, createStepName='air pump', 
+    distributionType=UNIFORM, field='', magnitude=0.12, name='Load-1', region=
+    mdb.models['Model-1'].rootAssembly.surfaces['Surf-2'])
+mdb.models['Model-1'].rootAssembly.Set(faces=
+    mdb.models['Model-1'].rootAssembly.instances['d14w5-1'].faces.getSequenceFromMask(
+    ('[#92 ]', ), ), name='Set-1')
+mdb.models['Model-1'].EncastreBC(createStepName='air pump', localCsys=None, 
+    name='BC-1', region=mdb.models['Model-1'].rootAssembly.sets['Set-1'])
+mdb.jobs['d14'].submit(consistencyChecking=OFF)
+mdb.jobs['d14']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'ethan-desktop', 'handle': 0, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Windows\\System32\\d14.odb', 'jobName': 'd14'})
+mdb.jobs['d14']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'd14'})
+mdb.jobs['d14']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'ethan-desktop', 'handle': 32264, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 0, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'd14', 'memory': 1105.0})
+mdb.jobs['d14']._Message(PHYSICAL_MEMORY, {'phase': STANDARD_PHASE, 
+    'physical_memory': 65445.0, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(MINIMUM_MEMORY, {'minimum_memory': 193.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 8 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 6224 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 1U', 
+    'timeIncrement': 2.0, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'd14', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 0.5, 'attempts': 2, 
+    'timeIncrement': 0.5, 'increment': 1, 'stepTime': 0.5, 'step': 1, 
+    'jobName': 'd14', 'severe': 0, 'iterations': 4, 'phase': STANDARD_PHASE, 
+    'equilibrium': 4})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 1, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
+    'timeIncrement': 0.5, 'increment': 2, 'stepTime': 1.0, 'step': 1, 
+    'jobName': 'd14', 'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 
+    'equilibrium': 3})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 2, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 6 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 12594 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.0, 'attempts': ' 1U', 
+    'timeIncrement': 0.75, 'increment': 3, 'stepTime': 1.0, 'step': 1, 
+    'jobName': 'd14', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.1875, 'attempts': 2, 
+    'timeIncrement': 0.1875, 'increment': 3, 'stepTime': 1.1875, 'step': 1, 
+    'jobName': 'd14', 'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 
+    'equilibrium': 3})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 3, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 47 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 2557 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.1875, 'attempts': ' 1U', 
+    'timeIncrement': 0.28125, 'increment': 4, 'stepTime': 1.1875, 'step': 1, 
+    'jobName': 'd14', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.2578125, 'attempts': 2, 
+    'timeIncrement': 0.0703125, 'increment': 4, 'stepTime': 1.2578125, 
+    'step': 1, 'jobName': 'd14', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 4, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 21 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 37 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 1011 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.2578125, 'attempts': ' 1U', 
+    'timeIncrement': 0.10546875, 'increment': 5, 'stepTime': 1.2578125, 
+    'step': 1, 'jobName': 'd14', 'severe': 0, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.2841796875, 'attempts': 2, 
+    'timeIncrement': 0.0263671875, 'increment': 5, 'stepTime': 1.2841796875, 
+    'step': 1, 'jobName': 'd14', 'severe': 0, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 5, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.32373046875, 'attempts': 1, 
+    'timeIncrement': 0.03955078125, 'increment': 6, 'stepTime': 1.32373046875, 
+    'step': 1, 'jobName': 'd14', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 6, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.383056640625, 'attempts': 1, 
+    'timeIncrement': 0.059326171875, 'increment': 7, 
+    'stepTime': 1.383056640625, 'step': 1, 'jobName': 'd14', 'severe': 0, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 7, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 4 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.4720458984375, 'attempts': 1, 
+    'timeIncrement': 0.0889892578125, 'increment': 8, 
+    'stepTime': 1.4720458984375, 'step': 1, 'jobName': 'd14', 'severe': 0, 
+    'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 8, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 39 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 26 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.4720458984375, 
+    'attempts': ' 1U', 'timeIncrement': 0.13348388671875, 'increment': 9, 
+    'stepTime': 1.4720458984375, 'step': 1, 'jobName': 'd14', 'severe': 0, 
+    'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.50541687011719, 'attempts': 2, 
+    'timeIncrement': 0.0333709716796875, 'increment': 9, 
+    'stepTime': 1.50541687011719, 'step': 1, 'jobName': 'd14', 'severe': 0, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 9, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.55547332763672, 'attempts': 1, 
+    'timeIncrement': 0.0500564575195312, 'increment': 10, 
+    'stepTime': 1.55547332763672, 'step': 1, 'jobName': 'd14', 'severe': 0, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 10, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.63055801391602, 'attempts': 1, 
+    'timeIncrement': 0.0750846862792969, 'increment': 11, 
+    'stepTime': 1.63055801391602, 'step': 1, 'jobName': 'd14', 'severe': 0, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 11, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.74318504333496, 'attempts': 1, 
+    'timeIncrement': 0.112627029418945, 'increment': 12, 
+    'stepTime': 1.74318504333496, 'step': 1, 'jobName': 'd14', 'severe': 0, 
+    'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 12, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 4 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.91212558746338, 'attempts': 1, 
+    'timeIncrement': 0.168940544128418, 'increment': 13, 
+    'stepTime': 1.91212558746338, 'step': 1, 'jobName': 'd14', 'severe': 0, 
+    'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 13, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 14, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 2.0, 'attempts': 1, 
+    'timeIncrement': 0.0878744125366211, 'increment': 14, 'stepTime': 2.0, 
+    'step': 1, 'jobName': 'd14', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['d14']._Message(END_STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'd14'})
+mdb.jobs['d14']._Message(JOB_COMPLETED, {'time': 'Fri Nov 11 13:03:50 2022', 
+    'jobName': 'd14'})
+# Save by ethan on 2022_11_11-15.19.39; build 2022 2021_09_15-10.57.30 176069
+# Save by ethan on 2022_11_11-16.04.21; build 2022 2021_09_15-10.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['d14'].submit(consistencyChecking=OFF)
+mdb.jobs['d14']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'ethan-desktop', 'handle': 0, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'D:\\Personal\\ISEF\\Mechanical\\simulation\\d14w5\\d14.odb', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'd14'})
+mdb.jobs['d14']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'ethan-desktop', 'handle': 33268, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 0, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'd14', 'memory': 1105.0})
+mdb.jobs['d14']._Message(PHYSICAL_MEMORY, {'phase': STANDARD_PHASE, 
+    'physical_memory': 65445.0, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(MINIMUM_MEMORY, {'minimum_memory': 193.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 8 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 6224 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 1U', 
+    'timeIncrement': 2.0, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'd14', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 0.5, 'attempts': 2, 
+    'timeIncrement': 0.5, 'increment': 1, 'stepTime': 0.5, 'step': 1, 
+    'jobName': 'd14', 'severe': 0, 'iterations': 4, 'phase': STANDARD_PHASE, 
+    'equilibrium': 4})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 1, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
+    'timeIncrement': 0.5, 'increment': 2, 'stepTime': 1.0, 'step': 1, 
+    'jobName': 'd14', 'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 
+    'equilibrium': 3})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 2, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 6 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 12594 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.0, 'attempts': ' 1U', 
+    'timeIncrement': 0.75, 'increment': 3, 'stepTime': 1.0, 'step': 1, 
+    'jobName': 'd14', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.1875, 'attempts': 2, 
+    'timeIncrement': 0.1875, 'increment': 3, 'stepTime': 1.1875, 'step': 1, 
+    'jobName': 'd14', 'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 
+    'equilibrium': 3})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 3, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 47 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 2557 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.1875, 'attempts': ' 1U', 
+    'timeIncrement': 0.28125, 'increment': 4, 'stepTime': 1.1875, 'step': 1, 
+    'jobName': 'd14', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.2578125, 'attempts': 2, 
+    'timeIncrement': 0.0703125, 'increment': 4, 'stepTime': 1.2578125, 
+    'step': 1, 'jobName': 'd14', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 4, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 21 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 37 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 1011 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.2578125, 'attempts': ' 1U', 
+    'timeIncrement': 0.10546875, 'increment': 5, 'stepTime': 1.2578125, 
+    'step': 1, 'jobName': 'd14', 'severe': 0, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.2841796875, 'attempts': 2, 
+    'timeIncrement': 0.0263671875, 'increment': 5, 'stepTime': 1.2841796875, 
+    'step': 1, 'jobName': 'd14', 'severe': 0, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 5, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.32373046875, 'attempts': 1, 
+    'timeIncrement': 0.03955078125, 'increment': 6, 'stepTime': 1.32373046875, 
+    'step': 1, 'jobName': 'd14', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 6, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.383056640625, 'attempts': 1, 
+    'timeIncrement': 0.059326171875, 'increment': 7, 
+    'stepTime': 1.383056640625, 'step': 1, 'jobName': 'd14', 'severe': 0, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 7, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 4 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.4720458984375, 'attempts': 1, 
+    'timeIncrement': 0.0889892578125, 'increment': 8, 
+    'stepTime': 1.4720458984375, 'step': 1, 'jobName': 'd14', 'severe': 0, 
+    'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 8, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 39 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 26 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.4720458984375, 
+    'attempts': ' 1U', 'timeIncrement': 0.13348388671875, 'increment': 9, 
+    'stepTime': 1.4720458984375, 'step': 1, 'jobName': 'd14', 'severe': 0, 
+    'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.50541687011719, 'attempts': 2, 
+    'timeIncrement': 0.0333709716796875, 'increment': 9, 
+    'stepTime': 1.50541687011719, 'step': 1, 'jobName': 'd14', 'severe': 0, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 9, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.55547332763672, 'attempts': 1, 
+    'timeIncrement': 0.0500564575195312, 'increment': 10, 
+    'stepTime': 1.55547332763672, 'step': 1, 'jobName': 'd14', 'severe': 0, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 10, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.63055801391602, 'attempts': 1, 
+    'timeIncrement': 0.0750846862792969, 'increment': 11, 
+    'stepTime': 1.63055801391602, 'step': 1, 'jobName': 'd14', 'severe': 0, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 11, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.74318504333496, 'attempts': 1, 
+    'timeIncrement': 0.112627029418945, 'increment': 12, 
+    'stepTime': 1.74318504333496, 'step': 1, 'jobName': 'd14', 'severe': 0, 
+    'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 12, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 4 negative eigenvalues.', 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 1.91212558746338, 'attempts': 1, 
+    'timeIncrement': 0.168940544128418, 'increment': 13, 
+    'stepTime': 1.91212558746338, 'step': 1, 'jobName': 'd14', 'severe': 0, 
+    'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 13, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 14, 'jobName': 'd14'})
+mdb.jobs['d14']._Message(STATUS, {'totalTime': 2.0, 'attempts': 1, 
+    'timeIncrement': 0.0878744125366211, 'increment': 14, 'stepTime': 2.0, 
+    'step': 1, 'jobName': 'd14', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['d14']._Message(END_STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'd14'})
+mdb.jobs['d14']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'd14'})
+mdb.jobs['d14']._Message(JOB_COMPLETED, {'time': 'Fri Nov 11 16:07:53 2022', 
+    'jobName': 'd14'})
+# Save by ethan on 2022_11_11-16.15.25; build 2022 2021_09_15-10.57.30 176069
+# Save by ethan on 2022_11_11-16.15.26; build 2022 2021_09_15-10.57.30 176069
+# Save by ethan on 2022_11_11-16.15.27; build 2022 2021_09_15-10.57.30 176069
+# Save by ethan on 2022_11_11-16.15.27; build 2022 2021_09_15-10.57.30 176069
+# Save by ethan on 2022_11_11-16.15.27; build 2022 2021_09_15-10.57.30 176069
+# Save by ethan on 2022_11_11-16.15.27; build 2022 2021_09_15-10.57.30 176069

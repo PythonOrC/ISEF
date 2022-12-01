@@ -1,0 +1,1085 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.openParasolid(fileName=
+    'D:/Personal/ISEF/Mechanical/snake parts/silicon final v1.x_t', topology=
+    SOLID)
+mdb.models['Model-1'].PartFromGeometryFile(combine=False, dimensionality=
+    THREE_D, geometryFile=mdb.acis, name='silicon final v1', scale=1.0, type=
+    DEFORMABLE_BODY)
+mdb.models['Model-1'].Material(name='A15 Silicon')
+mdb.models['Model-1'].materials['A15 Silicon'].Density(table=((1.072e-09, ), ))
+mdb.models['Model-1'].materials['A15 Silicon'].Hyperelastic(materialType=
+    ISOTROPIC, table=((0.090036, -0.0038806, 0.001524, 0.0, 0.0, 0.0), ), 
+    testData=OFF, type=YEOH, volumetricResponse=VOLUMETRIC_DATA)
+mdb.models['Model-1'].HomogeneousSolidSection(material='A15 Silicon', name=
+    'silicon section 1', thickness=None)
+mdb.models['Model-1'].parts['silicon final v1'].Set(cells=
+    mdb.models['Model-1'].parts['silicon final v1'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), name='Set-1')
+mdb.models['Model-1'].parts['silicon final v1'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Model-1'].parts['silicon final v1'].sets['Set-1'], sectionName=
+    'silicon section 1', thicknessAssignment=FROM_SECTION)
+mdb.models['Model-1'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name=
+    'silicon final v1-1', part=mdb.models['Model-1'].parts['silicon final v1'])
+mdb.models['Model-1'].StaticStep(maxNumInc=1000000, minInc=1e-08, name=
+    'air pump', nlgeom=ON, previous='Initial')
+mdb.models['Model-1'].rootAssembly.Surface(name='Surf-1', side1Faces=
+    mdb.models['Model-1'].rootAssembly.instances['silicon final v1-1'].faces.getSequenceFromMask(
+    ('[#4206c000 #30 ]', ), ))
+mdb.models['Model-1'].Pressure(amplitude=UNSET, createStepName='air pump', 
+    distributionType=UNIFORM, field='', magnitude=0.12, name='Load-1', region=
+    mdb.models['Model-1'].rootAssembly.surfaces['Surf-1'])
+mdb.models['Model-1'].loads.changeKey(fromName='Load-1', toName='two chamber')
+mdb.models['Model-1'].rootAssembly.Set(faces=
+    mdb.models['Model-1'].rootAssembly.instances['silicon final v1-1'].faces.getSequenceFromMask(
+    ('[#92 ]', ), ), name='Set-1')
+mdb.models['Model-1'].EncastreBC(createStepName='air pump', localCsys=None, 
+    name='base all three', region=
+    mdb.models['Model-1'].rootAssembly.sets['Set-1'])
+mdb.models['Model-1'].parts['silicon final v1'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=128.0)
+mdb.models['Model-1'].parts['silicon final v1'].setElementType(elemTypes=(
+    ElemType(elemCode=C3D8R, elemLibrary=STANDARD, secondOrderAccuracy=OFF, 
+    kinematicSplit=AVERAGE_STRAIN, hourglassControl=DEFAULT, 
+    distortionControl=DEFAULT), ElemType(elemCode=C3D6, elemLibrary=STANDARD), 
+    ElemType(elemCode=C3D4H, elemLibrary=STANDARD, secondOrderAccuracy=OFF, 
+    distortionControl=DEFAULT)), regions=(
+    mdb.models['Model-1'].parts['silicon final v1'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), ))
+mdb.models['Model-1'].parts['silicon final v1'].setElementType(elemTypes=(
+    ElemType(elemCode=C3D20R, elemLibrary=STANDARD), ElemType(elemCode=C3D15, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D10H, elemLibrary=STANDARD)), 
+    regions=(
+    mdb.models['Model-1'].parts['silicon final v1'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), ))
+mdb.models['Model-1'].parts['silicon final v1'].setElementType(elemTypes=(
+    ElemType(elemCode=C3D20R, elemLibrary=STANDARD), ElemType(elemCode=C3D15, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D10H, elemLibrary=STANDARD)), 
+    regions=(
+    mdb.models['Model-1'].parts['silicon final v1'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), ))
+mdb.models['Model-1'].parts['silicon final v1'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=160.0)
+mdb.models['Model-1'].parts['silicon final v1'].setElementType(elemTypes=(
+    ElemType(elemCode=C3D20R, elemLibrary=STANDARD), ElemType(elemCode=C3D15, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D10H, elemLibrary=STANDARD)), 
+    regions=(
+    mdb.models['Model-1'].parts['silicon final v1'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), ))
+mdb.models['Model-1'].parts['silicon final v1'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=64.0)
+mdb.models['Model-1'].parts['silicon final v1'].setElementType(elemTypes=(
+    ElemType(elemCode=C3D20R, elemLibrary=STANDARD), ElemType(elemCode=C3D15, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D10H, elemLibrary=STANDARD)), 
+    regions=(
+    mdb.models['Model-1'].parts['silicon final v1'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), ))
+mdb.models['Model-1'].parts['silicon final v1'].setElementType(elemTypes=(
+    ElemType(elemCode=C3D20R, elemLibrary=STANDARD), ElemType(elemCode=C3D15, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D10H, elemLibrary=STANDARD)), 
+    regions=(
+    mdb.models['Model-1'].parts['silicon final v1'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), ))
+mdb.models['Model-1'].parts['silicon final v1'].setMeshControls(elemShape=TET, 
+    regions=
+    mdb.models['Model-1'].parts['silicon final v1'].cells.getSequenceFromMask((
+    '[#1 ]', ), ), technique=FREE)
+mdb.models['Model-1'].parts['silicon final v1'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=128.0)
+mdb.models['Model-1'].parts['silicon final v1'].generateMesh()
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Job-1', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, numThreadsPerMpiProcess=1, queue=None, resultsFormat=
+    ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=0, 
+    waitMinutes=0)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF, datacheckJob=True)
+#* Unable to start analysis job
+#* Abaqus Error: Detected lock file Job-1.lck. Please confirm that no other 
+#* applications are attempting to write to the output database associated with 
+#* this job before removing the lock file and resubmitting.
+#* Abaqus/Datacheck exited with error(s).
+#* 
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF, datacheckJob=True)
+#* Unable to start analysis job
+#* Abaqus Error: Detected lock file Job-1.lck. Please confirm that no other 
+#* applications are attempting to write to the output database associated with 
+#* this job before removing the lock file and resubmitting.
+#* Abaqus/Datacheck exited with error(s).
+#* 
+mdb.jobs['Job-1'].setValues(multiprocessingMode=THREADS, numCpus=4, numDomains=
+    4, numGPUs=1, numThreadsPerMpiProcess=4)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF, datacheckJob=True)
+#* Unable to start analysis job
+#* Abaqus Error: Detected lock file Job-1.lck. Please confirm that no other 
+#* applications are attempting to write to the output database associated with 
+#* this job before removing the lock file and resubmitting.
+#* Abaqus/Datacheck exited with error(s).
+#* 
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF, datacheckJob=True)
+mdb.jobs['Job-1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'ethan-desktop', 'handle': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '1 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Windows\\System32\\Job-1.odb', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'ethan-desktop', 'handle': 10148, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Job-1', 'memory': 1592.0})
+mdb.jobs['Job-1']._Message(PHYSICAL_MEMORY, {'phase': STANDARD_PHASE, 
+    'physical_memory': 65445.0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(MINIMUM_MEMORY, {'minimum_memory': 236.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(JOB_COMPLETED, {'time': 'Fri Nov 11 09:34:54 2022', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'ethan-desktop', 'handle': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '1 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Windows\\System32\\Job-1.odb', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'ethan-desktop', 'handle': 30324, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Job-1', 'memory': 1106.0})
+mdb.jobs['Job-1']._Message(PHYSICAL_MEMORY, {'phase': STANDARD_PHASE, 
+    'physical_memory': 65445.0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(MINIMUM_MEMORY, {'minimum_memory': 194.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 8 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 930 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 1U', 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.25, 'attempts': 2, 
+    'timeIncrement': 0.25, 'increment': 1, 'stepTime': 0.25, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 4, 'phase': STANDARD_PHASE, 
+    'equilibrium': 4})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 1, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.5, 'attempts': 1, 
+    'timeIncrement': 0.25, 'increment': 2, 'stepTime': 0.5, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 4, 'phase': STANDARD_PHASE, 
+    'equilibrium': 4})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 2, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 80 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 17557 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.5, 'attempts': ' 1U', 
+    'timeIncrement': 0.375, 'increment': 3, 'stepTime': 0.5, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.59375, 'attempts': 2, 
+    'timeIncrement': 0.09375, 'increment': 3, 'stepTime': 0.59375, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 4, 'phase': STANDARD_PHASE, 
+    'equilibrium': 4})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 3, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 495 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 1011 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.59375, 'attempts': ' 1U', 
+    'timeIncrement': 0.140625, 'increment': 4, 'stepTime': 0.59375, 'step': 1, 
+    'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.62890625, 'attempts': 2, 
+    'timeIncrement': 0.03515625, 'increment': 4, 'stepTime': 0.62890625, 
+    'step': 1, 'jobName': 'Job-1', 'severe': 0, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 4, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 177 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 1985 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.62890625, 'attempts': ' 1U', 
+    'timeIncrement': 0.052734375, 'increment': 5, 'stepTime': 0.62890625, 
+    'step': 1, 'jobName': 'Job-1', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.64208984375, 'attempts': 2, 
+    'timeIncrement': 0.01318359375, 'increment': 5, 'stepTime': 0.64208984375, 
+    'step': 1, 'jobName': 'Job-1', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 5, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.661865234375, 'attempts': 1, 
+    'timeIncrement': 0.019775390625, 'increment': 6, 
+    'stepTime': 0.661865234375, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 6, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.6915283203125, 
+    'attempts': 1, 'timeIncrement': 0.0296630859375, 'increment': 7, 
+    'stepTime': 0.6915283203125, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 7, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 4 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.73602294921875, 
+    'attempts': 1, 'timeIncrement': 0.04449462890625, 'increment': 8, 
+    'stepTime': 0.73602294921875, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 8, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 6 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 30 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.73602294921875, 
+    'attempts': ' 1U', 'timeIncrement': 0.066741943359375, 'increment': 9, 
+    'stepTime': 0.73602294921875, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.752708435058594, 
+    'attempts': 2, 'timeIncrement': 0.0166854858398438, 'increment': 9, 
+    'stepTime': 0.752708435058594, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 9, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.777736663818359, 
+    'attempts': 1, 'timeIncrement': 0.0250282287597656, 'increment': 10, 
+    'stepTime': 0.777736663818359, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 10, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.815279006958008, 
+    'attempts': 1, 'timeIncrement': 0.0375423431396484, 'increment': 11, 
+    'stepTime': 0.815279006958008, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 11, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.87159252166748, 
+    'attempts': 1, 'timeIncrement': 0.0563135147094727, 'increment': 12, 
+    'stepTime': 0.87159252166748, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 12, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 4 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 194 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.87159252166748, 
+    'attempts': ' 1U', 'timeIncrement': 0.084470272064209, 'increment': 13, 
+    'stepTime': 0.87159252166748, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 6, 'phase': STANDARD_PHASE, 'equilibrium': 6})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.892710089683533, 
+    'attempts': 2, 'timeIncrement': 0.0211175680160522, 'increment': 13, 
+    'stepTime': 0.892710089683533, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 13, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.924386441707611, 
+    'attempts': 1, 'timeIncrement': 0.0316763520240784, 'increment': 14, 
+    'stepTime': 0.924386441707611, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 14, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 2 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.924386441707611, 
+    'attempts': ' 1U', 'timeIncrement': 0.0475145280361176, 'increment': 15, 
+    'stepTime': 0.924386441707611, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.93626507371664, 
+    'attempts': 2, 'timeIncrement': 0.0118786320090294, 'increment': 15, 
+    'stepTime': 0.93626507371664, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 15, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.954083021730185, 
+    'attempts': 1, 'timeIncrement': 0.0178179480135441, 'increment': 16, 
+    'stepTime': 0.954083021730185, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 16, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.954083021730185, 
+    'attempts': ' 1U', 'timeIncrement': 0.0267269220203161, 'increment': 17, 
+    'stepTime': 0.954083021730185, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 5 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 3 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 3 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.954083021730185, 
+    'attempts': ' 2U', 'timeIncrement': 0.00668173050507903, 'increment': 17, 
+    'stepTime': 0.954083021730185, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 6, 'phase': STANDARD_PHASE, 'equilibrium': 6})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 2 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.954083021730185, 
+    'attempts': ' 3U', 'timeIncrement': 0.00167043262626976, 'increment': 17, 
+    'stepTime': 0.954083021730185, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 6, 'phase': STANDARD_PHASE, 'equilibrium': 6})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.954500629886752, 
+    'attempts': 4, 'timeIncrement': 0.000417608156567439, 'increment': 17, 
+    'stepTime': 0.954500629886752, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 17, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.954500629886752, 
+    'attempts': ' 1U', 'timeIncrement': 0.000626412234851159, 'increment': 18, 
+    'stepTime': 0.954500629886752, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 7, 'phase': STANDARD_PHASE, 'equilibrium': 7})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.954657232945465, 
+    'attempts': 2, 'timeIncrement': 0.00015660305871279, 'increment': 18, 
+    'stepTime': 0.954657232945465, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 18, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.954892137533534, 
+    'attempts': 1, 'timeIncrement': 0.000234904588069185, 'increment': 19, 
+    'stepTime': 0.954892137533534, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 19, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 2 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.954892137533534, 
+    'attempts': ' 1U', 'timeIncrement': 0.000352356882103777, 'increment': 20, 
+    'stepTime': 0.954892137533534, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.95498022675406, 
+    'attempts': 2, 'timeIncrement': 8.80892205259443e-05, 'increment': 20, 
+    'stepTime': 0.95498022675406, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 20, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.95498022675406, 
+    'attempts': ' 1U', 'timeIncrement': 0.000132133830788916, 'increment': 21, 
+    'stepTime': 0.95498022675406, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 5, 'phase': STANDARD_PHASE, 'equilibrium': 5})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.955013260211757, 
+    'attempts': 2, 'timeIncrement': 3.30334576972291e-05, 'increment': 21, 
+    'stepTime': 0.955013260211757, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 21, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.955013260211757, 
+    'attempts': ' 1U', 'timeIncrement': 4.95501865458436e-05, 'increment': 22, 
+    'stepTime': 0.955013260211757, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 7, 'phase': STANDARD_PHASE, 'equilibrium': 7})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.955013260211757, 
+    'attempts': ' 2U', 'timeIncrement': 1.23875466364609e-05, 'increment': 22, 
+    'stepTime': 0.955013260211757, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 6, 'phase': STANDARD_PHASE, 'equilibrium': 6})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.955016357098416, 
+    'attempts': 3, 'timeIncrement': 3.09688665911523e-06, 'increment': 22, 
+    'stepTime': 0.955016357098416, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 22, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.955021002428405, 
+    'attempts': 1, 'timeIncrement': 4.64532998867284e-06, 'increment': 23, 
+    'stepTime': 0.955021002428405, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 23, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.955021002428405, 
+    'attempts': ' 1U', 'timeIncrement': 6.96799498300926e-06, 'increment': 24, 
+    'stepTime': 0.955021002428405, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 8, 'phase': STANDARD_PHASE, 'equilibrium': 8})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.955021002428405, 
+    'attempts': ' 2U', 'timeIncrement': 1.74199874575232e-06, 'increment': 24, 
+    'stepTime': 0.955021002428405, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 6, 'phase': STANDARD_PHASE, 'equilibrium': 6})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.955021437928091, 
+    'attempts': 3, 'timeIncrement': 4.35499686438079e-07, 'increment': 24, 
+    'stepTime': 0.955021437928091, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 24, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.955022091177621, 
+    'attempts': 1, 'timeIncrement': 6.53249529657118e-07, 'increment': 25, 
+    'stepTime': 0.955022091177621, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 25, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.955022091177621, 
+    'attempts': ' 1U', 'timeIncrement': 9.79874294485678e-07, 'increment': 26, 
+    'stepTime': 0.955022091177621, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.955022091177621, 
+    'attempts': ' 2U', 'timeIncrement': 2.44968573621419e-07, 'increment': 26, 
+    'stepTime': 0.955022091177621, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 6, 'phase': STANDARD_PHASE, 'equilibrium': 6})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.955022152419764, 
+    'attempts': 3, 'timeIncrement': 6.12421434053548e-08, 'increment': 26, 
+    'stepTime': 0.955022152419764, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 26, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.955022152419764, 
+    'attempts': ' 1U', 'timeIncrement': 9.18632151080323e-08, 'increment': 27, 
+    'stepTime': 0.955022152419764, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 7, 'phase': STANDARD_PHASE, 'equilibrium': 7})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.955022152419764, 
+    'attempts': ' 2U', 'timeIncrement': 2.29658037770081e-08, 'increment': 27, 
+    'stepTime': 0.955022152419764, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 9, 'phase': STANDARD_PHASE, 'equilibrium': 9})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.955022162419764, 
+    'attempts': 3, 'timeIncrement': 1e-08, 'increment': 27, 
+    'stepTime': 0.955022162419764, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 27, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.955022162419764, 
+    'attempts': ' 1U', 'timeIncrement': 1.5e-08, 'increment': 28, 
+    'stepTime': 0.955022162419764, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 5, 'phase': STANDARD_PHASE, 'equilibrium': 5})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {'phase': STANDARD_PHASE, 
+    'message': 'Time increment required is less than the minimum specified', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.955022162419764, 
+    'attempts': ' 2U', 'timeIncrement': 1e-08, 'increment': 28, 
+    'stepTime': 0.955022162419764, 'step': 1, 'jobName': 'Job-1', 'severe': 0, 
+    'iterations': 6, 'phase': STANDARD_PHASE, 'equilibrium': 6})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 28, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {'phase': STANDARD_PHASE, 
+    'message': 'THE ANALYSIS HAS BEEN TERMINATED DUE TO PREVIOUS ERRORS. ALL OUTPUT REQUESTS HAVE BEEN WRITTEN FOR THE LAST CONVERGED INCREMENT.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ABORTED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase failed due to errors', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(ERROR, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'Job-1'})
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].rootAssembly.Surface(name='Surf-2', side1Faces=
+    mdb.models['Model-1'].rootAssembly.instances['silicon final v1-1'].faces.getSequenceFromMask(
+    ('[#2048000 #20 ]', ), ))
+mdb.models['Model-1'].Pressure(amplitude=UNSET, createStepName='air pump', 
+    distributionType=UNIFORM, field='', magnitude=0.12, name='one chamber', 
+    region=mdb.models['Model-1'].rootAssembly.surfaces['Surf-2'])
+mdb.models['Model-1'].loads['two chamber'].suppress()
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, 
+    multiprocessingMode=THREADS, name='one-chamber', nodalOutputPrecision=
+    SINGLE, numCpus=8, numDomains=8, numGPUs=0, numThreadsPerMpiProcess=8, 
+    queue=None, resultsFormat=ODB, scratch='', type=ANALYSIS, userSubroutine=''
+    , waitHours=0, waitMinutes=0)
+mdb.jobs['one-chamber'].submit(consistencyChecking=OFF, datacheckJob=True)
+mdb.jobs['one-chamber']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'ethan-desktop', 'handle': 0, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '1 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Windows\\System32\\one-chamber.odb', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'ethan-desktop', 'handle': 18076, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'one-chamber', 'memory': 1592.0})
+mdb.jobs['one-chamber']._Message(PHYSICAL_MEMORY, {'phase': STANDARD_PHASE, 
+    'physical_memory': 65445.0, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(MINIMUM_MEMORY, {'minimum_memory': 236.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(JOB_COMPLETED, {
+    'time': 'Fri Nov 11 10:41:35 2022', 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber'].submit(consistencyChecking=OFF)
+mdb.jobs['one-chamber']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'ethan-desktop', 'handle': 0, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '1 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Windows\\System32\\one-chamber.odb', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'ethan-desktop', 'handle': 26440, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'one-chamber', 'memory': 1106.0})
+mdb.jobs['one-chamber']._Message(PHYSICAL_MEMORY, {'phase': STANDARD_PHASE, 
+    'physical_memory': 65445.0, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(MINIMUM_MEMORY, {'minimum_memory': 194.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 4 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 101 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 1U', 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'one-chamber', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.25, 'attempts': 2, 
+    'timeIncrement': 0.25, 'increment': 1, 'stepTime': 0.25, 'step': 1, 
+    'jobName': 'one-chamber', 'severe': 0, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.5, 'attempts': 1, 
+    'timeIncrement': 0.25, 'increment': 2, 'stepTime': 0.5, 'step': 1, 
+    'jobName': 'one-chamber', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 44 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 8271 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.5, 'attempts': ' 1U', 
+    'timeIncrement': 0.375, 'increment': 3, 'stepTime': 0.5, 'step': 1, 
+    'jobName': 'one-chamber', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.59375, 'attempts': 2, 
+    'timeIncrement': 0.09375, 'increment': 3, 'stepTime': 0.59375, 'step': 1, 
+    'jobName': 'one-chamber', 'severe': 0, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 256 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 4830 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.59375, 
+    'attempts': ' 1U', 'timeIncrement': 0.140625, 'increment': 4, 
+    'stepTime': 0.59375, 'step': 1, 'jobName': 'one-chamber', 'severe': 0, 
+    'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.62890625, 
+    'attempts': 2, 'timeIncrement': 0.03515625, 'increment': 4, 
+    'stepTime': 0.62890625, 'step': 1, 'jobName': 'one-chamber', 'severe': 0, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 89 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 3 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.62890625, 
+    'attempts': ' 1U', 'timeIncrement': 0.052734375, 'increment': 5, 
+    'stepTime': 0.62890625, 'step': 1, 'jobName': 'one-chamber', 'severe': 0, 
+    'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.64208984375, 
+    'attempts': 2, 'timeIncrement': 0.01318359375, 'increment': 5, 
+    'stepTime': 0.64208984375, 'step': 1, 'jobName': 'one-chamber', 
+    'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.661865234375, 
+    'attempts': 1, 'timeIncrement': 0.019775390625, 'increment': 6, 
+    'stepTime': 0.661865234375, 'step': 1, 'jobName': 'one-chamber', 
+    'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 6, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.6915283203125, 
+    'attempts': 1, 'timeIncrement': 0.0296630859375, 'increment': 7, 
+    'stepTime': 0.6915283203125, 'step': 1, 'jobName': 'one-chamber', 
+    'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 7, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.73602294921875, 
+    'attempts': 1, 'timeIncrement': 0.04449462890625, 'increment': 8, 
+    'stepTime': 0.73602294921875, 'step': 1, 'jobName': 'one-chamber', 
+    'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 8, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 3 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.802764892578125, 
+    'attempts': 1, 'timeIncrement': 0.066741943359375, 'increment': 9, 
+    'stepTime': 0.802764892578125, 'step': 1, 'jobName': 'one-chamber', 
+    'severe': 0, 'iterations': 5, 'phase': STANDARD_PHASE, 'equilibrium': 5})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 9, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.8695068359375, 
+    'attempts': 1, 'timeIncrement': 0.066741943359375, 'increment': 10, 
+    'stepTime': 0.8695068359375, 'step': 1, 'jobName': 'one-chamber', 
+    'severe': 0, 'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 10, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.936248779296875, 
+    'attempts': 1, 'timeIncrement': 0.066741943359375, 'increment': 11, 
+    'stepTime': 0.936248779296875, 'step': 1, 'jobName': 'one-chamber', 
+    'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 11, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 12, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
+    'timeIncrement': 0.063751220703125, 'increment': 12, 'stepTime': 1.0, 
+    'step': 1, 'jobName': 'one-chamber', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['one-chamber']._Message(END_STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(JOB_COMPLETED, {
+    'time': 'Fri Nov 11 10:45:51 2022', 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber'].setValues(multiprocessingMode=THREADS, numCpus=16, 
+    numDomains=16, numGPUs=0, numThreadsPerMpiProcess=16)
+mdb.jobs['one-chamber'].submit(consistencyChecking=OFF)
+#* Unable to start analysis job
+#* Abaqus Error: The number of cpus (16) exceeds the number of cpus available 
+#* (8).
+#* Abaqus/Analysis exited with error(s).
+#* 
+mdb.jobs['one-chamber'].setValues(multiprocessingMode=DEFAULT, numGPUs=0, 
+    numThreadsPerMpiProcess=1)
+mdb.jobs['one-chamber'].submit(consistencyChecking=OFF)
+#* Unable to start analysis job
+#* Abaqus Error: The number of cpus (16) exceeds the number of cpus available 
+#* (8).
+#* Abaqus/Analysis exited with error(s).
+#* 
+mdb.jobs['one-chamber'].setValues(multiprocessingMode=DEFAULT, numCpus=8, 
+    numDomains=8, numGPUs=0, numThreadsPerMpiProcess=1)
+mdb.jobs['one-chamber'].submit(consistencyChecking=OFF)
+mdb.jobs['one-chamber']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'ethan-desktop', 'handle': 0, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '1 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Windows\\System32\\one-chamber.odb', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'ethan-desktop', 'handle': 12376, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'one-chamber', 'memory': 1106.0})
+mdb.jobs['one-chamber']._Message(PHYSICAL_MEMORY, {'phase': STANDARD_PHASE, 
+    'physical_memory': 65445.0, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(MINIMUM_MEMORY, {'minimum_memory': 194.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 4 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 101 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 1U', 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'one-chamber', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.25, 'attempts': 2, 
+    'timeIncrement': 0.25, 'increment': 1, 'stepTime': 0.25, 'step': 1, 
+    'jobName': 'one-chamber', 'severe': 0, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.5, 'attempts': 1, 
+    'timeIncrement': 0.25, 'increment': 2, 'stepTime': 0.5, 'step': 1, 
+    'jobName': 'one-chamber', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 44 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 8271 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.5, 'attempts': ' 1U', 
+    'timeIncrement': 0.375, 'increment': 3, 'stepTime': 0.5, 'step': 1, 
+    'jobName': 'one-chamber', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.59375, 'attempts': 2, 
+    'timeIncrement': 0.09375, 'increment': 3, 'stepTime': 0.59375, 'step': 1, 
+    'jobName': 'one-chamber', 'severe': 0, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 256 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 4830 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.59375, 
+    'attempts': ' 1U', 'timeIncrement': 0.140625, 'increment': 4, 
+    'stepTime': 0.59375, 'step': 1, 'jobName': 'one-chamber', 'severe': 0, 
+    'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.62890625, 
+    'attempts': 2, 'timeIncrement': 0.03515625, 'increment': 4, 
+    'stepTime': 0.62890625, 'step': 1, 'jobName': 'one-chamber', 'severe': 0, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 89 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 3 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.62890625, 
+    'attempts': ' 1U', 'timeIncrement': 0.052734375, 'increment': 5, 
+    'stepTime': 0.62890625, 'step': 1, 'jobName': 'one-chamber', 'severe': 0, 
+    'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.64208984375, 
+    'attempts': 2, 'timeIncrement': 0.01318359375, 'increment': 5, 
+    'stepTime': 0.64208984375, 'step': 1, 'jobName': 'one-chamber', 
+    'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.661865234375, 
+    'attempts': 1, 'timeIncrement': 0.019775390625, 'increment': 6, 
+    'stepTime': 0.661865234375, 'step': 1, 'jobName': 'one-chamber', 
+    'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 6, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.6915283203125, 
+    'attempts': 1, 'timeIncrement': 0.0296630859375, 'increment': 7, 
+    'stepTime': 0.6915283203125, 'step': 1, 'jobName': 'one-chamber', 
+    'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 7, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.73602294921875, 
+    'attempts': 1, 'timeIncrement': 0.04449462890625, 'increment': 8, 
+    'stepTime': 0.73602294921875, 'step': 1, 'jobName': 'one-chamber', 
+    'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 8, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 3 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.802764892578125, 
+    'attempts': 1, 'timeIncrement': 0.066741943359375, 'increment': 9, 
+    'stepTime': 0.802764892578125, 'step': 1, 'jobName': 'one-chamber', 
+    'severe': 0, 'iterations': 5, 'phase': STANDARD_PHASE, 'equilibrium': 5})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 9, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.8695068359375, 
+    'attempts': 1, 'timeIncrement': 0.066741943359375, 'increment': 10, 
+    'stepTime': 0.8695068359375, 'step': 1, 'jobName': 'one-chamber', 
+    'severe': 0, 'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 10, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 0.936248779296875, 
+    'attempts': 1, 'timeIncrement': 0.066741943359375, 'increment': 11, 
+    'stepTime': 0.936248779296875, 'step': 1, 'jobName': 'one-chamber', 
+    'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 11, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 12, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
+    'timeIncrement': 0.063751220703125, 'increment': 12, 'stepTime': 1.0, 
+    'step': 1, 'jobName': 'one-chamber', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['one-chamber']._Message(END_STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'one-chamber'})
+mdb.jobs['one-chamber']._Message(JOB_COMPLETED, {
+    'time': 'Fri Nov 11 10:57:56 2022', 'jobName': 'one-chamber'})
+# Save by ethan on 2022_11_11-11.15.52; build 2022 2021_09_15-10.57.30 176069
