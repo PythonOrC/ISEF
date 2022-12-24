@@ -1,3 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 *.odb filter=lfs diff=lfs merge=lfs -text
+D:/Github filter=lfs diff=lfs merge=lfs -text
+D:/Github[[:space:]]Repository/ISEF/Mechanical/simulation/d15w5/one-chamber.odb filter=lfs diff=lfs merge=lfs -text

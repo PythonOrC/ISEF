@@ -40,7 +40,7 @@ class Snake():
         for i in seg_addr:
             self.stop(i)
             cnt = cnt + 1 if cnt <= self.TURN_LENGTH else 1
-            direct = not direct if cnt == 1 else direct
+            direct = not direct if cnt == 1 else a
             sleep(self.INFLATE)
 
     def serpentine(self,reverse=False):
