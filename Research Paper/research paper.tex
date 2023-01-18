@@ -107,7 +107,7 @@ fill=green!30]
 \graphicspath{{images/}}
 \counterwithin{figure}{section}
 \renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
-
+\usepackage{parskip}
 \counterwithin{table}{section}
 \renewcommand{\thetable}{\arabic{section}.\arabic{table}}
 
@@ -134,7 +134,9 @@ fill=green!30]
 \begin{abstract}
 \noindent 
 	Soft-body robots have always received less attention compared to other branches of robotics. However, this does not suggest that they are any less capable than traditional robots due to their extreme flexibility. Soft robots commercially can be used in medical situations and with human interaction. This includes deployment into a human's body. However, the use case also extends into disaster relief situations. The flexibility of soft robots gives them an advantage over rigid robots when they are navigating through narrow spaces. Because of this flexibility, designing an optimized and sturdy system is difficult. In this paper, I proposed a new soft-body snake that is more optimized for real-life situations.
+	
 	The goal of this study is to create a better version of the soft robotic snakes already developed. This can be divided into two parts: software, and hardware. The software part would include software on the robot, and software on the computer. The micro controller on the robot would need to process images with Machine Learning and Vision to better identify the environment. The robot also identifies objects and obstacles around it and sends their positions along with the video from the camera and some other data such as humidity and temperature altogether back to the computer. The computer then constructs a 3D map of the area and outputs the video to the user. The user can also choose to control the robot manually and the computer would send these commands to the robot. 
+	
 	The goal for the hardware part of the robot is to implement a more efficient flexible structure that better utilizes the air pressure and moves more controllably. The structures previous soft robotic snakes utilize is requires high air pressure and the expansion is rather uncontrolled and unideal. The structure is also very complicated and the connection between the flexible and rigid parts is hard to work with, not to mention the difficulties with preventing leakage of air with those structures.
 \end{abstract}
 }
@@ -152,7 +154,8 @@ fill=green!30]
 
 \section{Introduction}
 \subsection{Background}
-\lettrine[nindent=0em,lines=3]{E} very second counts after a disaster yet rescue teams cannot always get to places needing the most help right away due to obstacles and often dangers. This could include collapsed buildings, flooded tunnels, ablaze rooms, etc. To shorten the time between the disaster providing aid, mere human isn’t enough. Specialized robots for different deadly environments are needed to support the rescue effort better. 
+\lettrine[nindent=0em,lines=3]{E} very second counts after a disaster yet rescue teams cannot always get to places needing the most help right away due to obstacles and often dangers. This could include collapsed buildings, flooded tunnels, ablaze rooms, etc. To shorten the time between the disaster providing aid, mere human isn't enough. Specialized robots for different deadly environments are needed to support the rescue effort better. 
+
 Collapsed buildings can be seen anywhere after almost all types of disasters — earthquakes, hurricanes, tsunamis, etc. Clearing a path through tons of debris is both time-consuming and laborious. To explore this environment more efficiently and more easily, a much smaller robot, and much more suited for this situation is needed — a soft robotic snake. Bionic snakes are naturally perfect for slithering through tight gaps and small tubes that the rescuers would otherwise be unable to cross. This could drastically speed up the exploration of ruined areas and the time takes to get to the ones needing help. Although this cannot fully replace the purpose of human rescuers and the need to clear up the area to people, this can provide some emergent aid while the main rescue force is on its way. 
 
 \begin{figure}
@@ -167,7 +170,7 @@ Collapsed buildings can be seen anywhere after almost all types of disasters —
 	\includegraphics[width=\textwidth]{narrow passage}
 	\subcaption{Some narrow passages are so small that rescuers cannot fit through}
 \end{subfigure}
-\caption{Examples of imagined usecases}
+\caption{Examples of imagined use cases}
 \end{figure}
 
 \subsection{Current Studies}
@@ -186,8 +189,15 @@ As a soft-body robot, it has both flexible and rigid parts. Therefore, I split t
 \end{figure}
 
 \subsection{Snake Locomotions}
-\blindtext
-\todo{talk about different ways the snake move, explain how it is replicated, friction, etc}
+The locomotion of snake has been categorized into four modes: serpentine (lateral undulation), concertina, sidewinding, and rectilinear. Serpentine locomotion is the mostly commonly seen motion and is usually the movement people associate with snakes. The snake would seem like it is moving is an "S" shape. They move forward by pushing each S-loop against objects on the ground in order to move forward. This is generally the fastest and most efficient mode, but when a snake is in tighter spaces where such movement is not possible, concertina lomotion is a slower alternative method. A snake first anchors its tail and then extends its body forward, and then anchors its head to draw its tail in. The next cycle begin and the snake gradually moves forward. This opening and closing action resembles that of a concertina, hence receiving its name "concertina locomotion". When encountering less friction on the ground or when the ground is hot, sidewinding locomotion is preferred. This is usually observed by snakes living in desert as the sand provides little support and its temperature can be lethal. As the name suggests, the snake moves sideways. Somewhat like lateral undulation, this method also forms loops, but instead of pushing against objects on the ground, the snake pushing against the ground and lifts the loops up and only contacts the ground at a few points at a given moment. The snake then shifts the contact point downwards to the tail while a new loop forms. When the snake is in a extremely narrow terrain where even concertina is not viable, the snake uses rectilinear locomotion. The snake moves in a straight line by alternately lifts its belly and pushing downwards to the back. 
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\linewidth]{snake-motion}
+\caption{Visual Representation of the four modes}
+\end{figure}
+
 
 \subsection{Flexible Structures}
 Rubber silicon was the ideal material for the flexible part as it is accessible elastic, and malleable, which is important for this project as all flexible parts are non-standard and require special molds. Between all the firmness of the rubber silicon, Shore A-10 was determined to be the best hardness as it retains the shape well without pressure and is still soft enough to deform under high air pressure. The original design of the silicon part is that it will have three hollow tubes connected in a triangular pattern. However, this was proven to be ineffective as it would detach from the silicon part when the chamber expands. Each tube will be then sealed on both ends with a tubing that allows the air pump to expand the chamber. A spring was designed to be around the bore in hopes of constraining the expansion to vertical only and preventing outward expansion. There will be a ring around each end of the tubes to allow a firm seal between the silicon part and the acrylic pieces used to secure the silicon parts.  
@@ -200,17 +210,19 @@ Rubber silicon was the ideal material for the flexible part as it is accessible 
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\begin{minipage}{0.45\textwidth}
+
+	\begin{minipage}[b]{0.3\textwidth}
 		\centering
-		\includegraphics[angle=-90]{spring}
+		\includegraphics[width=\textwidth]{spring}
 		\caption{spring used in the silicon part}
 	\end{minipage}
-	\hfill	
-	\begin{minipage}{0.45\textwidth}
+	\hspace*{2cm}
+	\begin{minipage}[b]{0.3\textwidth}
 		\centering
-		\includegraphics{silicon_with_spring}
+		\includegraphics[width=\textwidth]{silicon_with_spring}
 		\caption{the silicon part with embedded spring}
 	\end{minipage}
+
 \end{figure}
 
 \subsection{Rigid Structure}
@@ -292,7 +304,7 @@ Then, I tested the effect of inner diameter on the max angle the part can bend. 
 \section{Construction}
 
 \subsection{Overall Structure}
-As mentioned, the structure is designed intentionally to be modular, meaning that the length of the robot can be adjusted depending on the need. This also helps with maintenance as parts can be easily replaced. At the end, the final impletemented design is as follows. The front has an OpenMV module attached and then each segment follows is identical. Tubing for air runs along the snake and whether the chamber inflates or not is controlled by air valves placed at the entrance of the chamber. The silicon body is connected using acrylic sheets pushed together. The chambers are placed in a triangular pattern with a hold in the middle for wires and tubing. This shape provides stability and functionality. The top has one chamber to push down the robot for better friction and contact while two chambers on the bottom control turning. The robot is propped on fixed rubber wheels to add friction and reduce wear on the acrylic and silicon parts. 
+As mentioned, the structure is designed intentionally to be modular, meaning that the length of the robot can be adjusted depending on the need. This also helps with maintenance as parts can be easily replaced. At the end, the final implemented design is as follows. The front has an OpenMV module attached and then each segment follows is identical. Tubing for air runs along the snake and whether the chamber inflates or not is controlled by air valves placed at the entrance of the chamber. The silicon body is connected using acrylic sheets pushed together. The chambers are placed in a triangular pattern with a hold in the middle for wires and tubing. This shape provides stability and functionality. The top has one chamber to push down the robot for better friction and contact while two chambers on the bottom control turning. The robot is propped on fixed rubber wheels to add friction and reduce wear on the acrylic and silicon parts. 
 
 \begin{figure} [H]
 	\centering
@@ -300,33 +312,87 @@ As mentioned, the structure is designed intentionally to be modular, meaning tha
 	\caption{Three segments of the robot wired together}
 \end{figure}
 
+\subsection{Robotic Snake Locomotion}
+For this robotic snake, two locomotion are chosen out of the four, which are serpentine and rectilinear locomotion. Serpentine is chosen because it is ideal in more spacious areas and can be mimicked by the robot. Rectilinear is chosen because it is ideal to be used in more narrow areas with little room to bent. Sidewinding are not implemented because of the difficulty of lifting parts of the robot due to the weight. Concertina is not implemented because the current pneumatic configuration cannot allow a chamber to hold positive pressure without allowing air to escape or enter as the solenoid valve is either connected to the outside or to the air pump which represents deflation and inflation respectively. 
+
+To replicate the serpentine locomotion, each segment of the snake will inflate in the opposite direction of the previous segment. For example, if the first segment has the top and right segment inflated, then the second segment will have the top and the left segment  inflated. This curves the snake into an S-shape just like a real snake. However, instead of pushing against an object on the ground, the snake pushes down on the ground with rubber wheels to add friction and thus pushing the robot forward. 
+
+To replicate the rectilinear locomotion, each segment will inflate all three chambers and then deflate at the same time in order move forward without turning.
+
 \subsection{Tools}
-Throughout the design of the structures, I relied heavily on a few tools. First is the designing tools. For CAD, I used a combination of Fusion 360, AutoCAD, and SolidWorks. Fusion 360 is used the most for general designs as it’s interface is simple and modern. I used AutoCAD to design two-dimensional sketches which are then sent to the CNC router. I used SolidWorks for assembling the different components of the snake together to check for interferences and oversights in the designs. 
+Throughout the design of the structures, I relied heavily on a few tools. First is the designing tools. For CAD, I used a combination of Fusion 360, AutoCAD, and SolidWorks. Fusion 360 is used the most for general designs as its interface is simple and modern. I used AutoCAD to design two-dimensional sketches which are then sent to the CNC router. I used SolidWorks for assembling the different components of the snake together to check for interference and oversights in the designs. 
 
-These designs are then brought to reality with one of the two manufacturing processes. The first being FDM (Fused Deposition Modeling) 3D printing. Most of the 3D printed parts are with the 1.75mm PLA filaments as it is 100\% biodegradable and biosourced. It is also easy to print with and nontoxic like ABS, another popular choice of material. The other method is with a CNC router. All acrylic sheets are processed with a single flute flat end mill.
+These designs are then brought to reality with one of the two manufacturing processes. The first being FDM (Fused Deposition Modeling) 3D printing. Most of the 3D printed parts are with the 1.75mm PLA filaments as it is 100\% biodegradable and bio-sourced. It is also easy to print with and nontoxic like ABS, another popular choice of material. The other method is with a CNC router. All acrylic sheets are processed with a single flute flat end mill.
 
-I also used both Fritzing and Altium Designer for presentation of circuit diagrams and SMCDraw for the pneumatics circuit diagram.
+I also used both Fritzing and Altium Designer for presentation of circuit diagrams and SMCDraw for the pneumatic circuit diagram.
 
 \begin{figure}[H]
 	\centering
 	
-	\begin{minipage}{0.4\linewidth}
+	\begin{minipage}[b]{0.4\linewidth}
 		\centering
-		\includegraphics[width=\textwidth, angle=-90]{pla}
+		\includegraphics[width=\textwidth]{pla}
 		\caption{HatchBox Gray 1.5mm PLA Filament I used}
 	\end{minipage}
 	\hfill	
-	\begin{minipage}{0.4\linewidth}
+	\begin{minipage}[b]{0.4\linewidth}
 		\centering
 		\includegraphics[width=\textwidth]{mill_bit}
-		\includegraphics[width=\textwidth]{mill_bit_closed}
 		\caption{Single Flute Flat End Mill with a cutting diameter of 1.5mm}
 	\end{minipage}
 \end{figure}
 
 \subsection{Silicon Casting}
-\blindtext
-\todo{add description of the casting process and add images}
+Below is the procedure of how I cast the silicon parts. Before starting, I first measured the mass of the total silicon I needed, which is about 130g. Since this specific 10A silicon rubber has two parts: A and B with a ratio of 1:1, I prepared 65g of each. 
+\begin{figure} [H]
+	\setlength\itemsep{-8pt}
+	Procedure:
+	\begin{enumerate}
+ 		\item Assembled the mold
+ 		\item pour 65g of part A into a cup
+ 		\item add 65g of part B
+ 		\item stir the mixture clockwise for 3 minutes
+ 		\item pour the mixture into the mold
+ 		\item vacuum for 3 minutes to degas the silicon
+ 		\item break the vacuum and wait for 24 hours to cure
+ 		\item remove the mold
+	\end{enumerate}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\textwidth]{prep mold}
+		\subcaption{Assemble the mold}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.33\linewidth}
+		\centering		
+		\includegraphics[width=\textwidth]{part a}
+		\subcaption{weigh part a}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\textwidth]{part b}
+		\subcaption{add part b}
+	\end{subfigure}
+	
+	\begin{subfigure}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\textwidth]{pour}
+		\subcaption{pour mixture into mold}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.33\linewidth}
+		\centering		
+		\includegraphics[width=\textwidth]{vacume}
+		\subcaption{vacuum to degas}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\textwidth]{extract}
+		\subcaption{extract the finished silicon part}
+	\end{subfigure}%
+	\caption{Steps of making silcon parts}
+\end{figure}
 \subsection{Silicon Mold Revisions}
 Each part of the robot has gone through multiple iterations. Especially the components related to the silicon body. 
 
@@ -414,7 +480,7 @@ However, gluing two silicon parts together soon proved weak. It cannot contain t
 \end{figure}
 
 \subsection{Communication Protocol}
-Although it was established that the segments are going to be designed with the idea of modularity, the actual approach changed. The first iteration was using ESP8266 as a microcontroller for each segment, and there will be one for each segment. They will be connected using I2C and instructions are going to be sent from the OpenMV module at the front. However, after some research and experiment, it was concluded that although labeled with such a feature, ESP8266 doesn’t support receiving I2C. Thus, the protocol was switched to Serial, which provides similar functionality but requires me to program my own communication protocols while I2C has this functionality packaged already.
+Although it was established that the segments are going to be designed with the idea of modularity, the actual approach changed. The first iteration was using ESP8266 as a microcontroller for each segment, and there will be one for each segment. They will be connected using I2C and instructions are going to be sent from the OpenMV module at the front. However, after some research and experiment, it was concluded that although labeled with such a feature, ESP8266 doesn't support receiving I2C. Thus, the protocol was switched to Serial, which provides similar functionality but requires me to program my own communication protocols while I2C has this functionality packaged already.
 
 \subsection{Airway}
 There is one overall air pump that sends air through the clear PVC tubing, and this pump is capable of exerting 12kPa. The air from the pump is them separated into tubing for each segment and then each solenoid valve. The valve tubing is then connected to a custom-printed valve core that ensures an air-tight seal between the tubing and the silicon chamber. There are two states of the solenoid valve and when it is powered, the air flows into the silicon chamber, and when the valve is not powered, the air flows out from the chamber. When the top and the left solenoid valve is powered, the air flows into those two chambers and bents this segment towards the right and when the top and the right solenoid valve are powered, the segment bends left. 
@@ -424,35 +490,35 @@ There is one overall air pump that sends air through the clear PVC tubing, and t
 	\begin{subfigure}[b]{0.33\linewidth}
 		\centering
 		\includegraphics[width=\textwidth]{air_connection}
-		\subcaption{Top CAD with Cross Section}
+		\subcaption{Solenoid valve connected to the valve and silicon chamber}
 	\end{subfigure}%
 	\begin{subfigure}[b]{0.33\linewidth}
 		\centering		
-		\includegraphics[width=\textwidth]{air_pump}
-		\subcaption{Bottom CAD with Cross Section}
+		\includegraphics[width=\textwidth]{air pump}
+		\subcaption{Air pump used}
 	\end{subfigure}%
-	\begin{subfigure}[b]{0.25\linewidth}
+	\begin{subfigure}[b]{0.33\linewidth}
 		\centering
 		\includegraphics[width=\textwidth]{pvc_tubing}
-		\subcaption{Plate CAD route}
+		\subcaption{PVC tubing used}
 	\end{subfigure}
 	
 	\begin{subfigure}[b]{0.33\linewidth}
 		\centering
 		\includegraphics[width=\textwidth]{solenoid valve}
-		\subcaption{Top and Bottom Printed}
+		\subcaption{solenoid valve used}
 	\end{subfigure}%
 	\begin{subfigure}[b]{0.33\linewidth}
 		\centering		
 		\includegraphics[width=\textwidth]{valve}
-		\subcaption{Cover Plate cut with CNC}
+		\subcaption{CAD of the valve}
 	\end{subfigure}%
 	\begin{subfigure}[b]{0.33\linewidth}
 		\centering
 		\includegraphics[width=\textwidth]{valve_section}
-		\subcaption{the mold assembled}
+		\subcaption{CAD of the valve with cross section}
 	\end{subfigure}%
-	\caption{Version 1 of the Mold}
+	\caption{Components of the pneumatic system}
 \end{figure}
 
 \begin{figure} [H]
@@ -488,13 +554,32 @@ At firs the wheel is just the acrylic cutout, but the acrylic wheel provided poo
 
 The OpenMV at the front of the robot is used for image recognition as well as for sending signals to each segment and controlling the movement of the robot. It is programmed in micro-Python. This allows for simpler code as well as the possibility to add AI recognition through OpenCV to the robot. Each ESP8266 is a receiver for the commands and a controller of the three solenoid valves on a segment, which controls whether then controls the flow of the air. ESP8266 can be coded in Arduino and is feature packed. Although right now each segment is connected through UART, the on-board Wi-Fi module allows the possibility to communicate via Wi-Fi with the other modules in the future. The ESP8266 is connected to an A4950 motor drive which is then connected to the solenoid valves. 
 
-\todo{add figures of actual parts and explain functionality}
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\textwidth]{OpenMV}
+		\subcaption{OpenMV Module}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.33\linewidth}
+		\centering		
+		\includegraphics[width=\textwidth]{ESP8266}
+		\subcaption{ESP8266 front and back}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=\textwidth]{A4950}
+		\subcaption{A4950}
+	\end{subfigure}
+	\caption{Components of the electric system}
+\end{figure}
 
 \begin{figure} [H]
 	\centering
 	\includegraphics[width=\linewidth]{wiring_diagram}
 	\caption{Wiring Diagram of the snake}
 \end{figure}
+
 \begin{figure} [H]
 \centering
 	\includegraphics[width=\linewidth]{electric circuit diagram}
@@ -502,7 +587,7 @@ The OpenMV at the front of the robot is used for image recognition as well as fo
 \end{figure}
 
 \section{Software Design}
-There are two movement types that the robot can perform depending on the environment and they all drew inspiration from the movements of a real snake. The serpentine locomotion is best for general purposes when there is a lot of open space. It is the S-shape movement people normally associate with snakes. The other type is concertina locomotion. This is best suited for tighter spaces where the snake cannot perform serpentine locomotion. It curls its tail while keeping the front stationery, and then keeps its tail stationary and extends its front. This repetition of curling and extending allows the snake to travel at narrow pathways. Each of these is achieved by predefined controls in the front OpenMV. There are two controls currently. The first is manual, where the user can directly control the movement of the snake. The second is automatic, where the snake will use its front-facing camera to follow a certain object. Regardless of which method, the openMV module converts the desired locomotion into a series of movements each segment performs and is distributed to each ESP8266. Since they relate to the same Serial port, a package header with an address that is unique to each segment is attached to the beginning of the command to assign this instruction to a specific segment. 
+There are two movement types that the robot can perform depending on the environment and they all drew inspiration from the movements of a real snake. The serpentine locomotion is best for general purposes when there is a lot of open space. It is the S-shape movement people normally associate with snakes. The other type is concertina locomotion. This is best suited for tighter spaces where the snake cannot perform serpentine locomotion. It curls its tail while keeping the front stationery, and then keeps its tail stationary and extends its front. This repetition of curling and extending allows the snake to travel at narrow pathways. Each of these is achieved by predefined controls in the front OpenMV. There are two controls currently. The first is manual, where the user can directly control the movement of the snake. The second is automatic, where the snake will use its front-facing camera to follow a certain object. Regardless of which method, the OpenMV module converts the desired locomotion into a series of movements each segment performs and is distributed to each ESP8266. Since they relate to the same Serial port, a package header with an address that is unique to each segment is attached to the beginning of the command to assign this instruction to a specific segment. 
 
 \begin{table}[H]
 \centering
@@ -515,9 +600,9 @@ Instruction & A code that tells ESP8266 which action to perform & 1 byte\\\hline
 \caption{Structure of the packages send out by the OpenMV to each ESP8266}
 \end{table}
 
-Althuogh the size of the package could be further decreased by using a nibble to represent each component (15 different addresses can be represented by a nibble not counting 0000, and technically only 2 bits are needed to represent the command), resulting in a much smaller packag, it is hardly necessary because the speed to UART3 is fast enough and the number of packages are few enough that a 2-byte-sized package will not hinder the performance. 
+Although the size of the package could be further decreased by using a nibble to represent each component (15 different addresses can be represented by a nibble not counting 0000, and technically only 2 bits are needed to represent the command), resulting in a much smaller package, it is hardly necessary because the speed to UART3 is fast enough and the number of packages are few enough that a 2-byte-sized package will not hinder the performance. 
 
-The OpenMV first initializes the UART and the state of each segment to 0, which represents a neutral, straight segment, except for the first segment, which is set to -1, which represents a segment curved to the right. Similarly, the number 1 represents a segment curved to the right. Then, the program checks for the locomotion. If the mode is serpentine, the the program updates the state of each segment to that of the segment in front of. After updating all segments including the first segment which is updated seperately as there is no segments in front, the new state is then converted into a char that represents the command after which will result in the desired state. The OpenMV first sends the address of the segment that should recieve this instruction and then follows it by the actual instruction. It does so for every segment, and then waits for the predefined amount of time, which is how long it takes to fully inflate the silicon chambers. After inflation, the state of the segment is updated again.
+The OpenMV first initializes the UART and the state of each segment to 0, which represents a neutral, straight segment, except for the first segment, which is set to -1, which represents a segment curved to the right. Similarly, the number 1 represents a segment curved to the right. Then, the program checks for the locomotion. If the mode is serpentine, the the program updates the state of each segment to that of the segment in front of. After updating all segments including the first segment which is updated separately as there is no segments in front, the new state is then converted into a char that represents the command after which will result in the desired state. The OpenMV first sends the address of the segment that should receive this instruction and then follows it by the actual instruction. It does so for every segment, and then waits for the predefined amount of time, which is how long it takes to fully inflate the silicon chambers. After inflation, the state of the segment is updated again.
 
 \begin{figure} [H]
 	\centering
@@ -549,11 +634,11 @@ The OpenMV first initializes the UART and the state of each segment to 0, which 
 	\caption{Flow chart how the front OpenMV commands each segment}
 \end{figure}
 
-Upon recieving a new byte data from the UART, each segment checks if the address matches that of itself. If it does not, then it will still read the next byte but will not process it in order to be ready to read the next header. If the address does match, then it will read the next instruction and perform the corresponding action. If character "S" is sent through, the segment will unpower all solenoid valves to release all chambers and have the silicon part return to neutral position. If "L" is sent through, the top and right solenoid valve will close and those two chambers will inflate, making the segment curve to the left. Similarly, if the instruction is "R", the top and left solenoid valve will close so the segment curves to the right. 
+Upon receiving a new byte data from the UART, each segment checks if the address matches that of itself. If it does not, then it will still read the next byte but will not process it in order to be ready to read the next header. If the address does match, then it will read the next instruction and perform the corresponding action. If character "S" is sent through, the segment will unpower all solenoid valves to release all chambers and have the silicon part return to neutral position. If "L" is sent through, the top and right solenoid valve will close and those two chambers will inflate, making the segment curve to the left. Similarly, if the instruction is "R", the top and left solenoid valve will close so the segment curves to the right. 
 
 \begin{figure}[H]
 	\centering
-	\hspace*{-0.5cm}%
+	\hspace*{-1cm}%
 	\begin{tikzpicture} [node distance=2cm, auto]
 		\node (start) [startstop, xshift=8cm] {Start};
 		\node (dec1) [decision, below of=start, yshift=-0.5cm] {check for packages};
@@ -574,7 +659,7 @@ Upon recieving a new byte data from the UART, each segment checks if the address
 		\draw [arrow] (dec2) -| node[anchor=north, xshift=0.5cm]{not for segment}(io3);
 		\draw [arrow] (io3) |- (dec1.north);
 		
-		\node (c2) [coord, on grid, below of=pro4b, xshift=-3cm, yshift=1cm] {};
+		\node (c2) [coord, on grid, below of=pro4b, xshift=-2.5cm, yshift=1cm] {};
 		\draw [arrow] (pro4b) |- (c2) |- (dec1.north);
 		\draw [arrow] (pro4a) |- (c2) |- (dec1.north);
 		\draw [arrow] (pro4c) |- (c2) |- (dec1.north);
