@@ -668,11 +668,29 @@ Upon receiving a new byte data from the UART, each segment checks if the address
 \end{figure}
 
 \section{Tests}
+Although simulations are a good way to observe the ideal behavior, it cannot replace the actual experiments. There are overall two types of tests I performed. The first is single segment tests where I took one segment out of the snake and took measurements of the performance indicated by the time to inflate, max angle, etc. Then, I tested the performance of the entire snake including travel speed and the control alogrithm.
+
+\subsection{Single Segement Test}
+I first tested the performance of a single segment in real life. The first test was unsuccessful as even the solenoid valves didn't open when powered. Normally, the solenoid valve would have a "click" sound when it is powered and unpowered. I also checked the power source, which outputs 12V and I've stepped it down to little more than 6V.
+
+After check the voltage at different points, I concluded that when the current passed through the A4950 driver, a 5V current is outputted rather than the 6V input. It seems like the voltage would drop significantly after passing through A4950 until the input is around 8V, which is when the voltage drop stops and outputs the same voltage as input. After dialing the power input to 8V, the solenoid valves now work.
+
+\begin{figure} [H]
+\centering
+\includegraphics[width=\textwidth]{Oscilloscope}
+\caption{Output with ~8V connected to an oscilloscope. Each grid is 1V.}
+\end{figure}
+
+\subsection{Entire Snake Test}
+
 \blindtext
+
 \todo{add some actual tests performed, success, failure, single module test, result analysis, reason, insert images of video}
 
 \section{Conclusion}
 This project did not achieve everything planned at the beginning. It only achieved the basic function of the robot, yet it is lacking a lot of software to support it. The implementation of an AI image recognition system is crucial as well as a purely image-based mapping system is also yet to be done. A coordinate system is also necessary to know the actual location of the snake. Without these, the robot cannot achieve its full potential as a life-saving device. Apart from the software, the silicon body design will also need to be improved as the current design does not make use of the pull potential of the air pressure.
+
+\todo{add a little more to conclusion}
 
 
 
