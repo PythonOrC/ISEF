@@ -1,0 +1,15 @@
+[0] Config.pm:306> INFO - This is Biber 2.18
+[0] Config.pm:309> INFO - Logfile is 'research paper.blg'
+[215] biber-MSWIN32:340> INFO - === 
+[285] Biber.pm:418> INFO - Reading 'research paper.bcf'
+[448] Biber.pm:978> INFO - Found 21 citekeys in bib section 0
+[470] Biber.pm:4401> INFO - Processing section 0
+[496] Biber.pm:4592> INFO - Looking for bibtex file 'snake.bib' for section 0
+[555] bibtex.pm:1713> INFO - LaTeX decoding ...
+[596] bibtex.pm:1518> INFO - Found BibTeX data source 'snake.bib'
+[853] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[854] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[854] Biber.pm:4221> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[854] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
+[911] bbl.pm:654> INFO - Writing 'research paper.bbl' with encoding 'UTF-8'
+[929] bbl.pm:757> INFO - Output to research paper.bbl

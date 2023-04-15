@@ -1,34 +1,14 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Journal Article
-% LaTeX Template
-% Version 1.4 (15/5/16)
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% Original author:
-% Frits Wenneker (http://www.howtotex.com) with extensive modifications by
-% Vel (vel@LaTeXTemplates.com)
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
-%----------------------------------------------------------------------------------------
-
 \documentclass[twoside]{article}
+\usepackage{biblatex} %Imports biblatex package
+\addbibresource{snake.bib}
 \usepackage{blindtext} % Package to generate dummy text throughout this template 
-
+\usepackage{amsmath}
 \usepackage[sc]{mathpazo} % Use the Palatino font
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
 \linespread{1.05} % Line spacing - Palatino needs more space between lines
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
 
 \usepackage[english]{babel} % Language hyphenation and typographical rules
-
 \usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
 \usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
 \usepackage{booktabs} % Horizontal rules in tables
@@ -53,7 +33,7 @@
 \pagestyle{fancy} % All pages have headers and footers
 \fancyhead{} % Blank out the default header
 \fancyfoot{} % Blank out the default footer
-\fancyhead[C]{Running title $\bullet$ Nuvember 2022} % Custom header text
+\fancyhead[C]{Modular Soft Snake Robot $\bullet$ November 2022} % Custom header text
 \fancyfoot[RO,LE]{\thepage} % Custom footer text
 \usepackage{titling} % Customizing the title section
 \usepackage{textcomp, gensymb}
@@ -110,7 +90,8 @@ fill=green!30]
 \usepackage{parskip}
 \counterwithin{table}{section}
 \renewcommand{\thetable}{\arabic{section}.\arabic{table}}
-
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.11}
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
 %----------------------------------------------------------------------------------------
@@ -119,10 +100,10 @@ fill=green!30]
 
 \pretitle{\begin{center}\Huge\bfseries} % Article title formatting
 \posttitle{\end{center}} % Article title closing formatting
-\title{Article Title} % Article title
+\title{Research on a multi-degree-of-freedom modular soft snake robot} % Article title
 \author{%
-\textsc{Ethan Hu}\thanks{A thank you or further information} \\[1ex] % Your name
-\normalsize Institution \\ % Your institution
+\textsc{Ethan Hu} \\[1ex] % Your name
+\normalsize The Overlake School \\ % Your institution
 \normalsize \href{mailto:ethanhu8351@gmail.com}{ethanhu8351@gmail.com} % Your email address
 %\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
 %\textsc{Jane Smith}\thanks{Corresponding author} \\[1ex] % Second author's name
@@ -135,7 +116,7 @@ fill=green!30]
 \noindent 
 	Soft-body robots have always received less attention compared to other branches of robotics. However, this does not suggest that they are any less capable than traditional robots due to their extreme flexibility. Soft robots commercially can be used in medical situations and with human interaction. This includes deployment into a human's body. However, the use case also extends into disaster relief situations. The flexibility of soft robots gives them an advantage over rigid robots when they are navigating through narrow spaces. Because of this flexibility, designing an optimized and sturdy system is difficult. In this paper, I proposed a new soft-body snake that is more optimized for real-life situations.
 	
-	The goal of this study is to create a better version of the soft robotic snakes already developed. This can be divided into two parts: software, and hardware. The software part would include software on the robot, and software on the computer. The micro controller on the robot would need to process images with Machine Learning and Vision to better identify the environment. The robot also identifies objects and obstacles around it and sends their positions along with the video from the camera and some other data such as humidity and temperature altogether back to the computer. The computer then constructs a 3D map of the area and outputs the video to the user. The user can also choose to control the robot manually and the computer would send these commands to the robot. 
+	The goal of this study is to create a better version of the soft robotic snakes already developed. This can be divided into two parts: software, and hardware. The software part would include software on the robot, and software on controller. The robot will send a video stream from the camera back to the controller, which will be a phone, as it is both lightweight and accessible. The user can also control the robot via the built-in controls through WiFi.
 	
 	The goal for the hardware part of the robot is to implement a more efficient flexible structure that better utilizes the air pressure and moves more controllably. The structures previous soft robotic snakes utilize is requires high air pressure and the expansion is rather uncontrolled and unideal. The structure is also very complicated and the connection between the flexible and rigid parts is hard to work with, not to mention the difficulties with preventing leakage of air with those structures.
 \end{abstract}
@@ -156,7 +137,9 @@ fill=green!30]
 \subsection{Background}
 \lettrine[nindent=0em,lines=3]{E} very second counts after a disaster yet rescue teams cannot always get to places needing the most help right away due to obstacles and often dangers. This could include collapsed buildings, flooded tunnels, ablaze rooms, etc. To shorten the time between the disaster providing aid, mere human isn't enough. Specialized robots for different deadly environments are needed to support the rescue effort better. 
 
-Collapsed buildings can be seen anywhere after almost all types of disasters — earthquakes, hurricanes, tsunamis, etc. Clearing a path through tons of debris is both time-consuming and laborious. To explore this environment more efficiently and more easily, a much smaller robot, and much more suited for this situation is needed — a soft robotic snake. Bionic snakes are naturally perfect for slithering through tight gaps and small tubes that the rescuers would otherwise be unable to cross. This could drastically speed up the exploration of ruined areas and the time takes to get to the ones needing help. Although this cannot fully replace the purpose of human rescuers and the need to clear up the area to people, this can provide some emergent aid while the main rescue force is on its way. 
+Collapsed buildings can be seen anywhere after almost all types of disasters — earthquakes, hurricanes, tsunamis, etc. Clearing a path through tons of debris is both time-consuming and laborious. To explore this environment more efficiently and more easily, a much smaller robot, and much more suited for this situation is needed — a soft robotic snake.
+
+Soft robotic snakes are a type of soft robots that can imitate the capabilities of biological snakes, such as flexibility, adaptability, and locomotion \cite{bsf20}\cite{rt15}. Soft robotic snakes have potential applications in inspection, search-and-rescue, disaster response, and medical fields \cite{lwsstcgyo20}\cite{wsqsglfo}. They are naturally perfect for slithering through tight gaps and small tubes that the rescuers would otherwise be unable to cross. This could drastically speed up the exploration of ruined areas and the time takes to get to the ones needing help. Although this cannot fully replace the purpose of human rescuers and the need to clear up the area to people, this can provide some emergent aid while the main rescue force is on its way. 
 
 \begin{figure}
 \centering
@@ -174,7 +157,7 @@ Collapsed buildings can be seen anywhere after almost all types of disasters —
 \end{figure}
 
 \subsection{Current Studies}
-This life-saving robot is of course not a completely new area of study. Many researchers have already attempted to recreate this fascinating animal. Wright and his team developed a simple modular robotic snake design using chained servos. Crespi and his team developed a more complicated robotic snake involving DC motors and detachable wheels to traverse both on the ground and in water. However, rigid bodies cannot fully mimic the movement of snakes as these robots can only move at the joints. Thus, many turned to softer and more flexible materials to achieve smoother turns. In a report presented at the International Conference of Soft Robotics (RoboSoft), Qin and his team used silicon tubes to achieve segments with 3 degrees of freedom (DoF). Each tube is responsible for 1 DoF and with three tubes, the soft robotic snake can perform locomotion much closer to that of a real snake than the rigid robotic snake. However, their design is much more complicated than the ones previously mentioned, as flexible material and air pressure are much harder to work with than rigid material and pulse-width modulation (PWM) signals. Apart from the production difficulties this design also lacks a more autonomous control system and a real-time feedback system that is crucial to its real-world applications. 
+This life-saving robot is of course not a completely new area of study \cite{cycc21}\cite{klt13}\cite{m18}. Many researchers have already attempted to recreate this fascinating animal. However, designing and controlling soft robotic snakes pose significant challenges due to their complex morphology, nonlinear dynamics, and high degrees of freedom \cite{Paap2000ARS}\cite{Matsuno2003ControlOR}\cite{Hirose2004BiologicallyIS}. The design of soft body robotic snakes involves the use of flexible materials, such as silicone, that can bend and twist without damaging the robot \cite{llcl19}. The snakes are controlled using various techniques, including pneumatic, hydraulic, and electrical actuation \cite{llcl19}\cite{lschw21}\cite{Palmre2014NanothornEF}. Unlike pneumatic and hydraulic, which are both powered by fluids, electrical actuation makes use of a flexible, elastic polymer that changes shape when a volage is applied \cite{gbzsp20}\cite{doi:10.2514/6.2001-1492}. Wright and his team developed a simple modular robotic snake design using chained servos \cite{Wright2007DesignOA}. Crespi and his team developed a more complicated robotic snake involving DC motors and detachable wheels to traverse both on the ground and in water \cite{Crespi2006AmphiBotIA}. However, rigid bodies cannot fully mimic the movement of snakes as these robots can only move at the joints. Thus, many turned to softer and more flexible materials to achieve smoother turns\cite{Onal2013AutonomousUS}\cite{Skorina2018ReversePA}. In a report presented at the International Conference of Soft Robotics \cite{qwsslo18}, Qin and his team used silicon tubes to achieve segments with 3 degrees of freedom (DoF). Each tube is responsible for 1 DoF and with three tubes, the soft robotic snake can perform locomotion much closer to that of a real snake than the rigid robotic snake. However, their design is much more complicated than the ones previously mentioned, as flexible material and air pressure are much harder to work with than rigid material and pulse-width modulation (PWM) signals. Apart from the production difficulties this design also lacks a more autonomous control system and a real-time feedback system that is crucial to its real-world applications. 
 
 %------------------------------------------------
 
@@ -188,7 +171,6 @@ As a soft-body robot, it has both flexible and rigid parts. Therefore, I split t
 	\caption{A complete segment of the snake}
 \end{figure}
 
-\todo{label the diagram a little and add engineering drawing}
 \subsection{Snake Locomotions}
 The locomotion of snake has been categorized into four modes: serpentine (lateral undulation), concertina, sidewinding, and rectilinear. Serpentine locomotion is the mostly commonly seen motion and is usually the movement people associate with snakes. The snake would seem like it is moving is an "S" shape. They move forward by pushing each S-loop against objects on the ground in order to move forward. This is generally the fastest and most efficient mode, but when a snake is in tighter spaces where such movement is not possible, concertina lomotion is a slower alternative method. A snake first anchors its tail and then extends its body forward, and then anchors its head to draw its tail in. The next cycle begin and the snake gradually moves forward. This opening and closing action resembles that of a concertina, hence receiving its name "concertina locomotion". When encountering less friction on the ground or when the ground is hot, sidewinding locomotion is preferred. This is usually observed by snakes living in desert as the sand provides little support and its temperature can be lethal. As the name suggests, the snake moves sideways. Somewhat like lateral undulation, this method also forms loops, but instead of pushing against objects on the ground, the snake pushing against the ground and lifts the loops up and only contacts the ground at a few points at a given moment. The snake then shifts the contact point downwards to the tail while a new loop forms. When the snake is in a extremely narrow terrain where even concertina is not viable, the snake uses rectilinear locomotion. The snake moves in a straight line by alternately lifts its belly and pushing downwards to the back. 
 
@@ -300,7 +282,6 @@ Then, I tested the effect of inner diameter on the max angle the part can bend. 
 	\caption{- The maximum angle the silicon parts can reach. 14mm version has the largest angle}
 \end{table}
 
-\todo{More tests regarding the extension of all parts. }
 %------------------------------------------------
 \section{Construction}
 
@@ -532,7 +513,7 @@ There is one overall air pump that sends air through the clear PVC tubing, and t
 The actual structure differed from the design in the connecting pieces. The original designed used brass standoffs of various lengths while the actual structure made use of long bolts. This is because the longs screw allows for finer adjustments that the brass standoffs cannot provide, and this is especially important during prototyping phase as changes are made frequently. 
 
 \subsection{Wheels}
-At firs the wheel is just the acrylic cutout, but the acrylic wheel provided poor friction and was not enough to push the robot forward. Thus, I 3d printed some grooved wheels with a TPU filament. TPU is a soft and flexible material which the most ideal material to be used to 3D print a wheel as it is easier to print compared to other flexible materials while still offer a good coefficient of friction. 
+At firs the wheel is just the acrylic cutout, but the acrylic wheel provided poor friction and was not enough to push the robot forward. Thus, I 3D printed some grooved wheels with a TPU filament. TPU is a soft and flexible material which the most ideal material to be used to 3D print a wheel as it is easier to print compared to other flexible materials while still offer a good coefficient of friction. 
 
 \begin{figure}[H]
 	\centering
@@ -553,24 +534,24 @@ At firs the wheel is just the acrylic cutout, but the acrylic wheel provided poo
 
 \section{Electrical Design}
 
-The OpenMV at the front of the robot is used for image recognition as well as for sending signals to each segment and controlling the movement of the robot. It is programmed in micro-Python. This allows for simpler code as well as the possibility to add AI recognition through OpenCV to the robot. Each ESP8266 is a receiver for the commands and a controller of the three solenoid valves on a segment, which controls whether then controls the flow of the air. ESP8266 can be coded in Arduino and is feature packed. Although right now each segment is connected through UART, the on-board Wi-Fi module allows the possibility to communicate via Wi-Fi with the other modules in the future. The ESP8266 is connected to an A4950 motor drive which is then connected to the solenoid valves. 
+Two different boards are used, the ESP32CAM module and the ESP32 module without the camera. The ESP32CAM at the front of the robot is used for sending video stream back to the phone, receiving the controls, as well as for sending signals to each segment and controlling the movement of the robot. It is programmed in arduino. Each subsequent ESP32 is a receiver for the commands and a controller of the three solenoid valves on a segment, which controls whether then controls the flow of the air. ESP32 can be coded in Arduino and is feature packed. Although right now each segment is connected through I2C, the on-board Wi-Fi module allows the possibility to communicate via Wi-Fi with the other modules in the future. The ESP32 is connected to an small relay which is then connected to the solenoid valves. 
 
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}[b]{0.33\linewidth}
 		\centering
-		\includegraphics[width=\textwidth]{OpenMV}
-		\subcaption{OpenMV Module}
+		\includegraphics[width=\textwidth]{esp32cam}
+		\subcaption{ESP32CAM Module}
 	\end{subfigure}%
 	\begin{subfigure}[b]{0.33\linewidth}
 		\centering		
-		\includegraphics[width=\textwidth]{ESP8266}
-		\subcaption{ESP8266 front and back}
+		\includegraphics[width=\textwidth]{esp32}
+		\subcaption{ESP32 Module}
 	\end{subfigure}%
 	\begin{subfigure}[b]{0.33\linewidth}
 		\centering
-		\includegraphics[width=\textwidth]{A4950}
-		\subcaption{A4950}
+		\includegraphics[width=\textwidth]{relay}
+		\subcaption{Relay}
 	\end{subfigure}
 	\caption{Components of the electric system}
 \end{figure}
@@ -578,33 +559,48 @@ The OpenMV at the front of the robot is used for image recognition as well as fo
 \begin{figure} [H]
 	\centering
 	\includegraphics[width=\linewidth]{wiring_diagram}
-	\caption{Wiring Diagram of the snake}
+	\caption{Wiring Diagram of the first segment and the second segment}
 \end{figure}
 
 \begin{figure} [H]
 \centering
-	\includegraphics[width=\linewidth]{electric circuit diagram}
-	\caption{Wiring Diagram of the snake}
+	\includegraphics[width=\linewidth]{snake segment board circuit diagram}
+	\caption{Schematic of the snake segment}
 \end{figure}
 
+\subsection{Driver}
+
+Originally, I used the motor driver A4950, chosen for its small size. However, during testing, I found that I cannot power both left and right at the same time. Upon further examination, I narrowed the issue to the driver. Researching the driver revealed that for each set of pins (Ain1, Ain2, Aout1, and Aout2 is a set and Bin1, Bin2, Bout1, and Bout2 is another set), only one pair of input/output can be set to high at any given instance. For example, when Ain1 is set to high, Ain2 cannot be set to high, or else the logic of the circuit breaks and neither would be powered. This is because there is only one driver circuit for each set.
+
+Based on this I came up with a few solutions. One way is to rewire it so that left and right solenoid valves are wired to the same set with the top wired to the other set. Because left and right won't be powered at the same time, the issue of sharing a circuit does not affect the performance. This does come at the cost of not being able to power all of them at the same time, which would be necessary for the rectilinear locomotion to work, which requires the inflation of all three chambers at the same time.
+
+Or, I can just use two drivers for each segment so that each solenoid valve has its own driver circuit. Although this does add extra weight and size, it allows each solenoid valve to be controlled independently, which is necessary in the design. 
+
+However, if I want the snake to work with any side up, none of the previous two solutions would work. Therefore, I decided to replace the drivers entirely and instead chose three small relays to drive the solenoids.
+
 \section{Software Design}
-There are two movement types that the robot can perform depending on the environment and they all drew inspiration from the movements of a real snake. The serpentine locomotion is best for general purposes when there is a lot of open space. It is the S-shape movement people normally associate with snakes. The other type is concertina locomotion. This is best suited for tighter spaces where the snake cannot perform serpentine locomotion. It curls its tail while keeping the front stationery, and then keeps its tail stationary and extends its front. This repetition of curling and extending allows the snake to travel at narrow pathways. Each of these is achieved by predefined controls in the front OpenMV. There are two controls currently. The first is manual, where the user can directly control the movement of the snake. The second is automatic, where the snake will use its front-facing camera to follow a certain object. Regardless of which method, the OpenMV module converts the desired locomotion into a series of movements each segment performs and is distributed to each ESP8266. Since they relate to the same Serial port, a package header with an address that is unique to each segment is attached to the beginning of the command to assign this instruction to a specific segment. 
+%There are two movement types that the robot can perform depending on the environment and they all drew inspiration from the movements of a real snake. 
+The serpentine locomotion is best for general purposes when there is a lot of open space. It is the S-shape movement people normally associate with snakes. 
+%The other type is concertina locomotion. This is best suited for tighter spaces where the snake cannot perform serpentine locomotion. It curls its tail while keeping the front stationery, and then keeps its tail stationary and extends its front. This repetition of curling and extending allows the snake to travel at narrow pathways. Each of these is achieved by predefined controls in the front OpenMV. 
+This motion is controlled by the front ESP32CAM module, which recieves signal from the phone via Wi-Fi and a MQTT server and HTTP protocol. The front main module separates the expected wave function into a series of movements and sends it to the specified receiving modules. Each module has a dedicated id that is unique to the segment so the main module can control the segments individually. 
 
-\begin{table}[H]
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-Name & Purpose & Size \\\hline
-Header & Signals which segment this command is for & 1 byte\\\hline
-Instruction & A code that tells ESP8266 which action to perform & 1 byte\\\hline
-\end{tabular}
-\caption{Structure of the packages send out by the OpenMV to each ESP8266}
-\end{table}
+The snake follows the graph of a \(y=\sin(x)\) function.
+\begin{figure} [H]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}
+		\addplot[color=red]{sin(deg(x))};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{A Standard \(y=\sin(x)\) graph.}
+\end{figure}
 
-Although the size of the package could be further decreased by using a nibble to represent each component (15 different addresses can be represented by a nibble not counting 0000, and technically only 2 bits are needed to represent the command), resulting in a much smaller package, it is hardly necessary because the speed to UART3 is fast enough and the number of packages are few enough that a 2-byte-sized package will not hinder the performance. 
+The main module determines which direction to curve each segment (or leave in neutral state) with the function \(y=A\sin(B\times x - C) + D\). \(A\) is the amplitude of the function, in this case, it is proportional to how wave the snake curves. \(B\) is the frequency of the function, that is, how horizontally compressed the function is, a larger \(B\) value means more curves in the same length of the robot. \(D\) is neglected in this function because it does affect the direction of travel. \(C\) is the horizontal shift of the function. In the case of the robot, this value is unique to each segment in order for the snake to move like a sine function. Each segment is slight offset to the right of the previous segment, which means that the segment will follow the motion of the previous. Thus, when all segments are combined, the snake forms a moving sine function. Because \(y=\sin(x)\) is a periodic function with a period of 2\(\pi\)/\(Speed\), the value of \(rads\) cycles through 0\degree to 360\degree . In the context of this code, the sine function is as follows. 
 
-The OpenMV first initializes the UART and the state of each segment to 0, which represents a neutral, straight segment, except for the first segment, which is set to -1, which represents a segment curved to the right. Similarly, the number 1 represents a segment curved to the right. Then, the program checks for the locomotion. If the mode is serpentine, the the program updates the state of each segment to that of the segment in front of. After updating all segments including the first segment which is updated separately as there is no segments in front, the new state is then converted into a char that represents the command after which will result in the desired state. The OpenMV first sends the address of the segment that should receive this instruction and then follows it by the actual instruction. It does so for every segment, and then waits for the predefined amount of time, which is how long it takes to fully inflate the silicon chambers. After inflation, the state of the segment is updated again.
+\centerline{\(k = \sin(Speed \times rads + id \times shift)\)}
 
+%There are two controls currently. The first is manual, where the user can directly control the movement of the snake. The second is automatic, where the snake will use its front-facing camera to follow a certain object. Regardless of which method, the OpenMV module converts the desired locomotion into a series of movements each segment performs and is distributed to each ESP8266. Since they relate to the same Serial port, a package header with an address that is unique to each segment is attached to the beginning of the command to assign this instruction to a specific segment. Although the size of the package could be further decreased by using a nibble to represent each component (15 different addresses can be represented by a nibble not counting 0000, and technically only 2 bits are needed to represent the command), resulting in a much smaller package, it is hardly necessary because the speed to UART3 is fast enough and the number of packages are few enough that a 2-byte-sized package will not hinder the performance. 
+%The OpenMV first initializes the UART and the state of each segment to 0, which represents a neutral, straight segment, except for the first segment, which is set to -1, which represents a segment curved to the right. Similarly, the number 1 represents a segment curved to the right. Then, the program checks for the locomotion. If the mode is serpentine, the the program updates the state of each segment to that of the segment in front of. After updating all segments including the first segment which is updated separately as there is no segments in front, the new state is then converted into a char that represents the command after which will result in the desired state. The OpenMV first sends the address of the segment that should receive this instruction and then follows it by the actual instruction. It does so for every segment, and then waits for the predefined amount of time, which is how long it takes to fully inflate the silicon chambers. After inflation, the state of the segment is updated again.
 \begin{figure} [H]
 	\centering
 	\hspace*{3cm}%
@@ -614,10 +610,9 @@ The OpenMV first initializes the UART and the state of each segment to 0, which 
 		\node (dec1) [decision, below of=pro1, yshift=-0.5cm] {Locomotion};
 		\node (dec2b) [decision, below of=dec1, yshift=-1cm] {Direction};
 		\node (dec2bb) [process, right of=dec2b, node distance=4cm, yshift=-1cm]{Reverse\\ segment\_addr list};
-		\node (pro2ba) [process, below of=dec2b, yshift = -0.5cm]{change inflation state for each segment};
-		\node (pro3ba) [process, below of=pro2ba]{change inflation state for each segment};
-		\node (pro4ba) [io, below of=pro3ba]{send package to\\ every segment};
-		\node (pro5ba) [process, below of=pro4ba]{wait for chambers to inflate};
+		\node (pro2ba) [io, below of=dec2b, yshift = -0.5cm]{send new angle value to segments};
+		\node (pro3ba) [process, below of=pro2ba]{change inflation state of own segment};
+		\node (pro4ba) [process, below of=pro3ba]{wait for chambers to inflate};
 	
 		\draw [arrow] (start) -- (pro1);
 		\draw [arrow] (pro1) -- (dec1);
@@ -627,43 +622,38 @@ The OpenMV first initializes the UART and the state of each segment to 0, which 
 		\draw [arrow] (dec2bb) |- (pro2ba);
 		\draw [arrow] (pro2ba) -- (pro3ba);
 		\draw [arrow] (pro3ba) -- (pro4ba);
-		\draw [arrow] (pro4ba) -- (pro5ba);
 	
-		\node (c1) [coord, on grid, left of=pro5ba, node distance=1.5cm, xshift=-1cm] {};
-		\draw [arrow] (pro5ba) -- (c1) |- (pro2ba);
+		\node (c1) [coord, on grid, left of=pro4ba, node distance=1.5cm, xshift=-1cm] {};
+		\draw [arrow] (pro4ba) -- (c1) |- (pro2ba);
 	\end{tikzpicture}
-	\caption{Flow chart how the front OpenMV commands each segment}
+	\caption{Flow chart how the front ESP32CAM commands each segment}
 \end{figure}
 
-Upon receiving a new byte data from the UART, each segment checks if the address matches that of itself. If it does not, then it will still read the next byte but will not process it in order to be ready to read the next header. If the address does match, then it will read the next instruction and perform the corresponding action. If character "S" is sent through, the segment will unpower all solenoid valves to release all chambers and have the silicon part return to neutral position. If "L" is sent through, the top and right solenoid valve will close and those two chambers will inflate, making the segment curve to the left. Similarly, if the instruction is "R", the top and left solenoid valve will close so the segment curves to the right. 
+Upon receiving a new \(rads\) value from the main module, each segment will calculate its own \(k\) value and perform the corresponding action depending on the value. I evenly divided the function into three parts; if \(k\) is within 1/6 and 1/2, the segment turns left; if it is within -1/6 and -1/2, the segment turns right; otherwise it stays neutral. When staying neutral, the segment will unpower all solenoid valves to release all chambers and have the silicon part return to neutral position. If the segment is turing left, the top and right solenoid valve will close and those two chambers will inflate, making the segment curve to the left. Similarly, if the segment is turning right, the top and left solenoid valve will close so the segment curves to the right. 
 
 \begin{figure}[H]
 	\centering
 	\hspace*{-1cm}%
 	\begin{tikzpicture} [node distance=2cm, auto]
 		\node (start) [startstop, xshift=8cm] {Start};
-		\node (dec1) [decision, below of=start, yshift=-0.5cm] {check for packages};
-		\node (dec2) [decision, below of=dec1, yshift=-1cm] {check header};
-		\node (dec3) [decision, below of=dec2, yshift=-1cm] {read instruction};
+		\node (dec1) [process, below of=start] {wait for packages};
+		\node (dec2) [io, below of=dec1] {read new \(rads\) value};
+		\node (dec3) [decision, below of=dec2, yshift=-0.5cm] {calculate \(k\) value};
 		\node (pro4a) [process, below of=dec3, node distance=2.25cm] {stop powering all solenoids};
 		\node (pro4b) [process, left of=pro4a, node distance=4cm] {power top + right solenoid};
 		\node (pro4c) [process, right of=pro4a, node distance=4cm] {power top + left solenoid};
-		\node (io3) [io, left of=dec2, xshift=-2cm, yshift=1.5cm] {read header}; 
 		\draw [arrow] (start) -- (dec1);
 		\draw [arrow] (dec1) -- node {new pacakge} (dec2);
 		\draw [arrow] (dec2) -- node {for this segment} (dec3);
-		\draw [arrow] (dec3) -- node {"S"} (pro4a);
-		\draw [arrow] (dec3) -| node[anchor=south, xshift=1cm] {"L"} (pro4b);
-		\draw [arrow] (dec3) -| node[anchor=south, xshift=-1cm] {"R"} (pro4c);
+		\draw [arrow] (dec3) -- node {\(-0.16 \le k \le -0.16\)} (pro4a);
+		\draw [arrow] (dec3) -| node[anchor=south, xshift=1cm] {\(0.16 \le k\)} (pro4b);
+		\draw [arrow] (dec3) -| node[anchor=south, xshift=-1cm] {\(k \le -0.16\)} (pro4c);
 		\node (c1) [coord, on grid, right of=dec1, xshift=1cm] {};
-		\draw [arrow] (dec1) -- (c1) |- node [anchor=south,xshift=-1.5cm] {no new pacakge} (dec1.north);
-		\draw [arrow] (dec2) -| node[anchor=north, xshift=0.5cm]{not for segment}(io3);
-		\draw [arrow] (io3) |- (dec1.north);
-		
 		\node (c2) [coord, on grid, below of=pro4b, xshift=-2.5cm, yshift=1cm] {};
-		\draw [arrow] (pro4b) |- (c2) |- (dec1.north);
-		\draw [arrow] (pro4a) |- (c2) |- (dec1.north);
-		\draw [arrow] (pro4c) |- (c2) |- (dec1.north);
+		\node (c3) [coord, on grid, above of=dec1, yshift=-1cm] {};
+		\draw (pro4b) |- (c2) |- (c3);
+		\draw (pro4a) |- (c2) |- (c3);
+		\draw (pro4c) |- (c2) |- (c3);
 	\end{tikzpicture}
 	\caption{Flow chart of how each segment functions}
 \end{figure}
@@ -671,7 +661,7 @@ Upon receiving a new byte data from the UART, each segment checks if the address
 \section{Tests}
 Although simulations are a good way to observe the ideal behavior, it cannot replace the actual experiments. There are overall two types of tests I performed. The first is single segment tests where I took one segment out of the snake and took measurements of the performance indicated by the time to inflate, max angle, etc. Then, I tested the performance of the entire snake including travel speed and the control alogrithm.
 
-\subsection{Single Segement Test}
+\subsection{Single Segment Test}
 I first tested the performance of a single segment in real life. The first test was unsuccessful as even the solenoid valves didn't open when powered. Normally, the solenoid valve would have a "click" sound when it is powered and unpowered. I also checked the power source, which outputs 12V and I've stepped it down to little more than 6V.
 
 After check the voltage at different points, I concluded that when the current passed through the A4950 driver, a 5V current is outputted rather than the 6V input. It seems like the voltage would drop significantly after passing through A4950 until the input is around 8V, which is when the voltage drop stops and outputs the same voltage as input. After dialing the power input to 8V, the solenoid valves now work.
@@ -680,18 +670,82 @@ After check the voltage at different points, I concluded that when the current p
 \centering
 \includegraphics[width=\textwidth]{Oscilloscope}
 \caption{Output with ~8V connected to an oscilloscope. Each grid is 1V.}
+\end{figure} 
+
+I filmed an top-down video of the first segment of the snake inflating and then imported into the software called Tracker from physlets.org to collect the data from the video. I first imported the video into the software. Then, I added a coordinate axis and aligned the y-axis along the snake. Measuring that the distance between the wheels of different segments to be 0.116 meters, I added a calibration stick to set the reference. Then I added a point mass tracking point and ran the autotracker. 
+
+\begin{table} [H]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+	\hline
+	Time (s) & 1 & 2 & 3\\
+	\hline
+	$\Delta$x (cm) & 1.57 & 2.67 & 3.52\\
+	\hline
+	Image & \includegraphics[align=c, scale=0.25]{1} & \includegraphics[align=c, scale=0.25]{2} & \includegraphics[align=c, scale=0.25]{3}\\
+	\hline
+	\end{tabular}
+	\caption{- Screenshots of the segment inflating}
+\end{table}
+
+After testing, I plotted the x position relative to the time and the trend seems to be logarithmic. The maximum distance is 3.62cm at t=3.44s.
+\begin{figure} [H]
+\centering
+\includegraphics[width=\textwidth]{single seg}
+\caption{x position of the point relative to time}
 \end{figure}
 
+\subsection{Two Segment Test}
+Similar to the single segment test, I filmed an top-down video of the first segment of the snake inflating and then followed the same steps as I've previously done.
+
+\begin{table} [H]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+	\hline
+	Time (s) & 1 & 2 & 3\\
+	\hline
+	$\Delta$x (cm) & 3.66 & 8.39 & 10.33\\
+	\hline
+	Image & \includegraphics[align=c, scale=0.25]{11} & \includegraphics[align=c, scale=0.25]{22} & \includegraphics[align=c, scale=0.25]{33}\\
+	\hline
+	\end{tabular}
+	\caption{- Screenshots of the segment inflating}
+\end{table}
+
+After testing, I plotted the x position relative to the time and the trend seems to be logarithmic. The maximum distance is 11.25cm at t=3.60s.
+\begin{figure} [H]
+\centering
+\includegraphics[width=\textwidth]{two seg}
+\caption{x position of the point relative to time}
+\end{figure}
+
+
 \subsection{Entire Snake Test}
+For this test, I followed similar procedures as the previous tests. The snake traveled 10.05cm in 14.74s with a speed of 0.68cm/s. The most likely cause of the decrease in rate after t=20s is due to the distortion of the video as it is now filming the snake at an angle. 
 
-\blindtext
+\begin{table} [H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	Time (s) & 5 & 10 & 15 & 20\\
+	\hline
+	$\Delta$x (cm) & 4.39 & 7.51 & 10.57 & 13.43\\
+	\hline
+	Image & \includegraphics[align=c, scale=0.25]{5} & \includegraphics[align=c, scale=0.25]{10} & \includegraphics[align=c, scale=0.25]{15} & \includegraphics[align=c, scale=0.25]{20}\\
+	\hline
+	\end{tabular}
+	\caption{- Screenshots of the segment in motion}
+\end{table}
 
-\todo{add some actual tests performed, success, failure, single module test, result analysis, reason, insert images of video}
+\begin{figure} [H]
+\centering
+\includegraphics[width=\textwidth]{4 seg snake}
+\caption{Distance traveled by the snake over time}
+\end{figure}
 
 \section{Conclusion}
-This project did not achieve everything planned at the beginning. It only achieved the basic function of the robot, yet it is lacking a lot of software to support it. The implementation of an AI image recognition system is crucial as well as a purely image-based mapping system is also yet to be done. A coordinate system is also necessary to know the actual location of the snake. Without these, the robot cannot achieve its full potential as a life-saving device. Apart from the software, the silicon body design will also need to be improved as the current design does not make use of the pull potential of the air pressure.
+This project did not achieve everything planned at the beginning. It only achieved the basic function of the robot, yet it is lacking a lot of software to support it. The implementation of an AI image recognition system is crucial as well as a purely image-based mapping system is also yet to be done. A coordinate system is also necessary to know the actual location of the snake. Without these, the robot cannot achieve its full potential as a life-saving device. Apart from the software, the silicon body design will also need to be improved as the current design does not make use of the pull potential of the air pressure. The movement algorithm can also be improved as right now the robot moves rather slowly. 
 
-\todo{add a little more to conclusion}
 
 
 
@@ -699,15 +753,7 @@ This project did not achieve everything planned at the beginning. It only achiev
 %	REFERENCE LIST
 %----------------------------------------------------------------------------------------
 
-\begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
-
-\bibitem[Figueredo and Wolf, 2009]{Figueredo:2009dg}
-Figueredo, A.~J. and Wolf, P. S.~A. (2009).
-\newblock Assortative pairing and life history strategy - a cross-cultural
-  study.
-\newblock {\em Human Nature}, 20:317--330.
- 
-\end{thebibliography}
+\printbibliography
 
 %----------------------------------------------------------------------------------------
 

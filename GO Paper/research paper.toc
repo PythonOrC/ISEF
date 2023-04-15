@@ -1,0 +1,25 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {I}Introduction}{3}{section.1}%
+\contentsline {subsection}{\numberline {i}Background}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {ii}Current Studies}{3}{subsection.1.2}%
+\contentsline {section}{\numberline {II}Theoretical Design}{4}{section.2}%
+\contentsline {subsection}{\numberline {i}Design Mentality}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {ii}Snake Locomotions}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {iii}Flexible Structures}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {iv}Rigid Structure}{5}{subsection.2.4}%
+\contentsline {subsection}{\numberline {v}Silicon Body Parameters}{6}{subsection.2.5}%
+\contentsline {section}{\numberline {III}Construction}{8}{section.3}%
+\contentsline {subsection}{\numberline {i}Overall Structure}{8}{subsection.3.1}%
+\contentsline {subsection}{\numberline {ii}Robotic Snake Locomotion}{8}{subsection.3.2}%
+\contentsline {subsection}{\numberline {iii}Silicon Casting}{8}{subsection.3.3}%
+\contentsline {subsection}{\numberline {iv}Silicon Mold Revisions}{9}{subsection.3.4}%
+\contentsline {subsection}{\numberline {v}Airway}{11}{subsection.3.5}%
+\contentsline {section}{\numberline {IV}Electrical Design}{12}{section.4}%
+\contentsline {section}{\numberline {V}Software Design}{13}{section.5}%
+\contentsline {subsection}{\numberline {i}Communication Within Snake}{13}{subsection.5.1}%
+\contentsline {subsection}{\numberline {ii}Remote Control and Video Stream}{15}{subsection.5.2}%
+\contentsline {section}{\numberline {VI}Tests}{15}{section.6}%
+\contentsline {subsection}{\numberline {i}Single Segment Test}{15}{subsection.6.1}%
+\contentsline {subsection}{\numberline {ii}Two Segment Test}{16}{subsection.6.2}%
+\contentsline {subsection}{\numberline {iii}Entire Snake Test}{17}{subsection.6.3}%
+\contentsline {section}{\numberline {VII}Conclusion}{18}{section.7}%

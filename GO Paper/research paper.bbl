@@ -1,0 +1,933 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{doi:10.2514/6.2001-1492}{inbook}{}
+      \name{author}{1}{}{%
+        {{hash=c979b13131bcdc5626d48542f30c547b}{%
+           family={Bar-cohen},
+           familyi={B\bibinithyphendelim c\bibinitperiod},
+           given={Yoseph},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{c979b13131bcdc5626d48542f30c547b}
+      \strng{fullhash}{c979b13131bcdc5626d48542f30c547b}
+      \strng{bibnamehash}{c979b13131bcdc5626d48542f30c547b}
+      \strng{authorbibnamehash}{c979b13131bcdc5626d48542f30c547b}
+      \strng{authornamehash}{c979b13131bcdc5626d48542f30c547b}
+      \strng{authorfullhash}{c979b13131bcdc5626d48542f30c547b}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{19th AIAA Applied Aerodynamics Conference}
+      \field{title}{Electroactive polymers as artificial muscles - Reality and challenges}
+      \verb{doi}
+      \verb 10.2514/6.2001-1492
+      \endverb
+      \verb{eprint}
+      \verb https://arc.aiaa.org/doi/pdf/10.2514/6.2001-1492
+      \endverb
+      \verb{urlraw}
+      \verb https://arc.aiaa.org/doi/abs/10.2514/6.2001-1492
+      \endverb
+      \verb{url}
+      \verb https://arc.aiaa.org/doi/abs/10.2514/6.2001-1492
+      \endverb
+    \endentry
+    \entry{bsf20}{article}{}
+      \name{author}{3}{}{%
+        {{hash=c746eb5849ccc92672e3accdb7f31244}{%
+           family={Bittner},
+           familyi={B\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=f5d67b69498e011109c9a5012f215f12}{%
+           family={Sawicki},
+           familyi={S\bibinitperiod},
+           given={G.\bibnamedelimi S.},
+           giveni={G\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=e53f8a26c77f682ea93a05025a20321c}{%
+           family={Full},
+           familyi={F\bibinitperiod},
+           given={R.\bibnamedelimi J.},
+           giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{2abad02f1ae2478d37c3a5c15ff20724}
+      \strng{fullhash}{2abad02f1ae2478d37c3a5c15ff20724}
+      \strng{bibnamehash}{2abad02f1ae2478d37c3a5c15ff20724}
+      \strng{authorbibnamehash}{2abad02f1ae2478d37c3a5c15ff20724}
+      \strng{authornamehash}{2abad02f1ae2478d37c3a5c15ff20724}
+      \strng{authorfullhash}{2abad02f1ae2478d37c3a5c15ff20724}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annual Review of Biomedical Engineering}
+      \field{title}{Design Principles for Soft Robotics: Perception, Behavior, and Movement}
+      \field{volume}{22}
+      \field{year}{2020}
+      \field{pages}{341\bibrangedash 366}
+      \range{pages}{26}
+      \verb{urlraw}
+      \verb https://doi.org/10.1146/annurev-bioeng-080119-014129
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1146/annurev-bioeng-080119-014129
+      \endverb
+    \endentry
+    \entry{cycc21}{article}{}
+      \name{author}{4}{}{%
+        {{hash=34b9df67d088662718e0026a5d05ae67}{%
+           family={Cao},
+           familyi={C\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=89b432fa4bb24ef9e7312fd806fb771b}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=e34b26004960d10c021b2a1692b26359}{%
+           family={Cai},
+           familyi={C\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=ff38b98d2dc65002f66d028a85b9d58d}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{c3a6e5ba32344d4090e193a333207586}
+      \strng{fullhash}{2860c452cdf35e08dc4b6d432096ce25}
+      \strng{bibnamehash}{c3a6e5ba32344d4090e193a333207586}
+      \strng{authorbibnamehash}{c3a6e5ba32344d4090e193a333207586}
+      \strng{authornamehash}{c3a6e5ba32344d4090e193a333207586}
+      \strng{authorfullhash}{2860c452cdf35e08dc4b6d432096ce25}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Sciences}
+      \field{number}{10}
+      \field{title}{Review on Soft Robotics: Materials, Actuators, and Applications}
+      \field{volume}{11}
+      \field{year}{2021}
+      \field{pages}{4687}
+      \range{pages}{1}
+      \verb{urlraw}
+      \verb https://doi.org/10.3390/app11104687
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.3390/app11104687
+      \endverb
+    \endentry
+    \entry{Crespi2006AmphiBotIA}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=992d22237f03f3219b79588f0a4f22c3}{%
+           family={Crespi},
+           familyi={C\bibinitperiod},
+           given={Alessandro},
+           giveni={A\bibinitperiod}}}%
+        {{hash=24891b832d1efe728d70caf5eb6ee0a4}{%
+           family={Ijspeert},
+           familyi={I\bibinitperiod},
+           given={Auke\bibnamedelima Jan},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{3f6d41cdb3b176cb6e0d646626d457e0}
+      \strng{fullhash}{3f6d41cdb3b176cb6e0d646626d457e0}
+      \strng{bibnamehash}{3f6d41cdb3b176cb6e0d646626d457e0}
+      \strng{authorbibnamehash}{3f6d41cdb3b176cb6e0d646626d457e0}
+      \strng{authornamehash}{3f6d41cdb3b176cb6e0d646626d457e0}
+      \strng{authorfullhash}{3f6d41cdb3b176cb6e0d646626d457e0}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{AmphiBot II: An Amphibious Snake Robot that Crawls and Swims using a Central Pattern Generator}
+      \field{year}{2006}
+    \endentry
+    \entry{gbzsp20}{article}{}
+      \name{author}{5}{}{%
+        {{hash=83353fc51a6c64b80c947091006a6b8a}{%
+           family={Gorissen},
+           familyi={G\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=c5f4a4b200dcfbc02bfc8396eda5b004}{%
+           family={Bi},
+           familyi={B\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=288f1cb2dd384cb5e91127507559fdbc}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=9fc649a2332634a98068d3104d72c1d2}{%
+           family={Shintake},
+           familyi={S\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=6b50fa0e0cb68ef7661c82386ef59818}{%
+           family={Paik},
+           familyi={P\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{d3f1025b8040bdecf8479ff533a54f3e}
+      \strng{fullhash}{cb10add6a99a0249dabb14512ceb3fed}
+      \strng{bibnamehash}{d3f1025b8040bdecf8479ff533a54f3e}
+      \strng{authorbibnamehash}{d3f1025b8040bdecf8479ff533a54f3e}
+      \strng{authornamehash}{d3f1025b8040bdecf8479ff533a54f3e}
+      \strng{authorfullhash}{cb10add6a99a0249dabb14512ceb3fed}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Robotics and Automation Letters}
+      \field{number}{2}
+      \field{title}{A Soft Hydraulic Snake Robot: Design, Modeling, and Control}
+      \field{volume}{5}
+      \field{year}{2020}
+      \field{pages}{1836\bibrangedash 1843}
+      \range{pages}{8}
+      \verb{urlraw}
+      \verb https://doi.org/10.1109/LRA.2020.2961969
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1109/LRA.2020.2961969
+      \endverb
+    \endentry
+    \entry{Hirose2004BiologicallyIS}{article}{}
+      \name{author}{2}{}{%
+        {{hash=d2900547b6d95bb73701ee59c3d05c80}{%
+           family={Hirose},
+           familyi={H\bibinitperiod},
+           given={Shigeo},
+           giveni={S\bibinitperiod}}}%
+        {{hash=3705b03db673569bb2d8603a014d55c5}{%
+           family={Mori},
+           familyi={M\bibinitperiod},
+           given={Makoto},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{a4d95deb55a2413b2f01c6c8dd050944}
+      \strng{fullhash}{a4d95deb55a2413b2f01c6c8dd050944}
+      \strng{bibnamehash}{a4d95deb55a2413b2f01c6c8dd050944}
+      \strng{authorbibnamehash}{a4d95deb55a2413b2f01c6c8dd050944}
+      \strng{authornamehash}{a4d95deb55a2413b2f01c6c8dd050944}
+      \strng{authorfullhash}{a4d95deb55a2413b2f01c6c8dd050944}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{2004 IEEE International Conference on Robotics and Biomimetics}
+      \field{title}{Biologically Inspired Snake-like Robots}
+      \field{year}{2004}
+      \field{pages}{1\bibrangedash 7}
+      \range{pages}{7}
+    \endentry
+    \entry{klt13}{article}{}
+      \name{author}{3}{}{%
+        {{hash=20b4de09eb2c0f6fbdf0febbafea948d}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=b229fd2d7a96db2b099df7df7cf5bf02}{%
+           family={Laschi},
+           familyi={L\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=4575c6e722ae6008cad05423a52f247c}{%
+           family={Trimmer},
+           familyi={T\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{b59e4983d9969f72441b9d0daba105fa}
+      \strng{fullhash}{b59e4983d9969f72441b9d0daba105fa}
+      \strng{bibnamehash}{b59e4983d9969f72441b9d0daba105fa}
+      \strng{authorbibnamehash}{b59e4983d9969f72441b9d0daba105fa}
+      \strng{authornamehash}{b59e4983d9969f72441b9d0daba105fa}
+      \strng{authorfullhash}{b59e4983d9969f72441b9d0daba105fa}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Trends in Biotechnology}
+      \field{number}{5}
+      \field{title}{Soft Robotics: A Bioinspired Evolution in Robotics}
+      \field{volume}{31}
+      \field{year}{2013}
+      \field{pages}{287\bibrangedash 294}
+      \range{pages}{8}
+      \verb{urlraw}
+      \verb https://doi.org/10.1016/j.tibtech.2013.03.002
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016/j.tibtech.2013.03.002
+      \endverb
+    \endentry
+    \entry{llcl19}{article}{}
+      \name{author}{4}{}{%
+        {{hash=4c74697ed13baac09eea3a53a54ab8bf}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={H.\bibnamedelimi T.},
+           giveni={H\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=4cc8fd668d98ae0abf73c41bdec9d7ff}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Y.\bibnamedelimi T.},
+           giveni={Y\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=36e41c8b00f3a3726708271f9f545cb7}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={C.\bibnamedelimi C.},
+           giveni={C\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=b87d5e22567e525df1c512767cec6b44}{%
+           family={Lai},
+           familyi={L\bibinitperiod},
+           given={W.\bibnamedelimi H.},
+           giveni={W\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{b697ff15bc69bd050d9c4a4800e18d3f}
+      \strng{fullhash}{6ec10737e253ca24f627c70685dbc660}
+      \strng{bibnamehash}{b697ff15bc69bd050d9c4a4800e18d3f}
+      \strng{authorbibnamehash}{b697ff15bc69bd050d9c4a4800e18d3f}
+      \strng{authornamehash}{b697ff15bc69bd050d9c4a4800e18d3f}
+      \strng{authorfullhash}{6ec10737e253ca24f627c70685dbc660}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Robotics and Automation Letters}
+      \field{number}{2}
+      \field{title}{Development and Locomotion Analysis of a Soft Robot Snake}
+      \field{volume}{4}
+      \field{year}{2019}
+      \field{pages}{1365\bibrangedash 1372}
+      \range{pages}{8}
+      \verb{urlraw}
+      \verb https://doi.org/10.1109/LRA.2019.2895994
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1109/LRA.2019.2895994
+      \endverb
+    \endentry
+    \entry{lschw21}{article}{}
+      \name{author}{5}{}{%
+        {{hash=ce084360cc68e7db4fe6cae1287b3adf}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=2d21a4c5b1b7b1da5165b2f8f62e700c}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=107d78a747d4c1e031e0191dcac12c98}{%
+           family={Cao},
+           familyi={C\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=67a92a8531b5c52d32199845c6c8145c}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=bbe869383a7d3458b82c516a21e4482c}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={X.},
+           giveni={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{0954792dbe24f33db81eda5a866f3dba}
+      \strng{fullhash}{d9278b3576f3c9f2d4e009d45dff7493}
+      \strng{bibnamehash}{0954792dbe24f33db81eda5a866f3dba}
+      \strng{authorbibnamehash}{0954792dbe24f33db81eda5a866f3dba}
+      \strng{authornamehash}{0954792dbe24f33db81eda5a866f3dba}
+      \strng{authorfullhash}{d9278b3576f3c9f2d4e009d45dff7493}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Materials Today}
+      \field{title}{Soft Robotics: Materials, Mechanisms, and Applications}
+      \field{volume}{43}
+      \field{year}{2021}
+      \field{pages}{327\bibrangedash 340}
+      \range{pages}{14}
+      \verb{urlraw}
+      \verb https://doi.org/10.1016/j.mattod.2021.02.003
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016/j.mattod.2021.02.003
+      \endverb
+    \endentry
+    \entry{lwsstcgyo20}{article}{}
+      \name{author}{9}{}{%
+        {{hash=765341ee626f43da3c3e90968af0d708}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=cd5d9f01b3f78197de0633810bf9df04}{%
+           family={Wan},
+           familyi={W\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=c67619924cd2ecb1e99e1432d09d6dbd}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=7e7fe6a11c97079c98bd0f757119e44f}{%
+           family={Skorina},
+           familyi={S\bibinitperiod},
+           given={E.\bibnamedelimi H.},
+           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=d98348699bcd318da70f71abe32cbc70}{%
+           family={Tao},
+           familyi={T\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+        {{hash=4e6fe5946a342625d61c1d8e3370d779}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+        {{hash=ba42bd3df9799a7ec9f56a179f16facd}{%
+           family={Gopalka},
+           familyi={G\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=2ac1e6d4937144cc9688db204fbb7e17}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+        {{hash=791d2e8f17990b91fd9bd8621bcfd1a0}{%
+           family={Onal},
+           familyi={O\bibinitperiod},
+           given={C.\bibnamedelimi D.},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{6e71e05288279ef10c68c4cad52e0bff}
+      \strng{fullhash}{b99e8b375b6165664566cfd5c63c11cf}
+      \strng{bibnamehash}{6e71e05288279ef10c68c4cad52e0bff}
+      \strng{authorbibnamehash}{6e71e05288279ef10c68c4cad52e0bff}
+      \strng{authornamehash}{6e71e05288279ef10c68c4cad52e0bff}
+      \strng{authorfullhash}{b99e8b375b6165664566cfd5c63c11cf}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Frontiers in robotics and AI}
+      \field{number}{59924}
+      \field{title}{Motion Planning and Iterative Learning Control of a Modular Soft Robotic Snake}
+      \field{volume}{7}
+      \field{year}{2020}
+      \field{pages}{2}
+      \range{pages}{1}
+      \verb{urlraw}
+      \verb https://doi.org/10.3389/frobt.2020.599242
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.3389/frobt.2020.599242
+      \endverb
+    \endentry
+    \entry{m18}{article}{}
+      \name{author}{1}{}{%
+        {{hash=d8ab823a6511b4842229dbf36848f6ba}{%
+           family={Majidi},
+           familyi={M\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{d8ab823a6511b4842229dbf36848f6ba}
+      \strng{fullhash}{d8ab823a6511b4842229dbf36848f6ba}
+      \strng{bibnamehash}{d8ab823a6511b4842229dbf36848f6ba}
+      \strng{authorbibnamehash}{d8ab823a6511b4842229dbf36848f6ba}
+      \strng{authornamehash}{d8ab823a6511b4842229dbf36848f6ba}
+      \strng{authorfullhash}{d8ab823a6511b4842229dbf36848f6ba}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Soft Robotics}
+      \field{title}{A Perspective-Current Trends and Pros}
+      \field{year}{2018}
+    \endentry
+    \entry{Matsuno2003ControlOR}{article}{}
+      \name{author}{2}{}{%
+        {{hash=43ffcabb7806a944c23c344804d4947b}{%
+           family={Matsuno},
+           familyi={M\bibinitperiod},
+           given={Fumitoshi},
+           giveni={F\bibinitperiod}}}%
+        {{hash=146104321f161369ca16de6e7cdb1bcb}{%
+           family={Suenaga},
+           familyi={S\bibinitperiod},
+           given={Kentarou},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{8f22a7ee4b7a7c547c0b76b99277eb83}
+      \strng{fullhash}{8f22a7ee4b7a7c547c0b76b99277eb83}
+      \strng{bibnamehash}{8f22a7ee4b7a7c547c0b76b99277eb83}
+      \strng{authorbibnamehash}{8f22a7ee4b7a7c547c0b76b99277eb83}
+      \strng{authornamehash}{8f22a7ee4b7a7c547c0b76b99277eb83}
+      \strng{authorfullhash}{8f22a7ee4b7a7c547c0b76b99277eb83}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{2003 IEEE International Conference on Robotics and Automation (Cat. No.03CH37422)}
+      \field{title}{Control of redundant 3D snake robot based on kinematic model}
+      \field{volume}{2}
+      \field{year}{2003}
+      \field{pages}{2061\bibrangedash 2066 vol.2}
+      \range{pages}{-1}
+    \endentry
+    \entry{Onal2013AutonomousUS}{article}{}
+      \name{author}{2}{}{%
+        {{hash=465fd0804dba0ea4fec081c4b0e930ba}{%
+           family={Onal},
+           familyi={O\bibinitperiod},
+           given={Cagdas\bibnamedelima D.},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=f74192f92945701041a41bfa429ee111}{%
+           family={Rus},
+           familyi={R\bibinitperiod},
+           given={Daniela},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{4a21c09da337eaff55a37fefc0dcaa43}
+      \strng{fullhash}{4a21c09da337eaff55a37fefc0dcaa43}
+      \strng{bibnamehash}{4a21c09da337eaff55a37fefc0dcaa43}
+      \strng{authorbibnamehash}{4a21c09da337eaff55a37fefc0dcaa43}
+      \strng{authornamehash}{4a21c09da337eaff55a37fefc0dcaa43}
+      \strng{authorfullhash}{4a21c09da337eaff55a37fefc0dcaa43}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Bioinspiration \& Biomimetics}
+      \field{title}{Autonomous undulatory serpentine locomotion utilizing body dynamics of a fluidic soft robot}
+      \field{volume}{8}
+      \field{year}{2013}
+    \endentry
+    \entry{Paap2000ARS}{article}{}
+      \name{author}{3}{}{%
+        {{hash=5d86a95b7440eec16d48e9cd73510f5a}{%
+           family={Paap},
+           familyi={P\bibinitperiod},
+           given={Karl\bibnamedelima L.},
+           giveni={K\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=441b84ed91144fd925e3947f180f8889}{%
+           family={Christaller},
+           familyi={C\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=a9fc00ec70309d0bf954eab4dc3a5fc4}{%
+           family={Kirchner},
+           familyi={K\bibinitperiod},
+           given={Frank},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{0de929381e18058732fdfe372da992a3}
+      \strng{fullhash}{0de929381e18058732fdfe372da992a3}
+      \strng{bibnamehash}{0de929381e18058732fdfe372da992a3}
+      \strng{authorbibnamehash}{0de929381e18058732fdfe372da992a3}
+      \strng{authornamehash}{0de929381e18058732fdfe372da992a3}
+      \strng{authorfullhash}{0de929381e18058732fdfe372da992a3}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings. 2000 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2000) (Cat. No.00CH37113)}
+      \field{title}{A robot snake to inspect broken buildings}
+      \field{volume}{3}
+      \field{year}{2000}
+      \field{pages}{2079\bibrangedash 2082 vol.3}
+      \range{pages}{-1}
+    \endentry
+    \entry{Palmre2014NanothornEF}{article}{}
+      \name{author}{6}{}{%
+        {{hash=bd7414ad618974d59fcff717e0e748e2}{%
+           family={Palmre},
+           familyi={P\bibinitperiod},
+           given={Viljar},
+           giveni={V\bibinitperiod}}}%
+        {{hash=4bf137aad9314aeed403af9a40336fbc}{%
+           family={Pugal},
+           familyi={P\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=0b6020c93890d67157bab896f59ea62c}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Kwang\bibnamedelima Jin},
+           giveni={K\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=29e0ea417c4c55ffda6664520384c371}{%
+           family={Leang},
+           familyi={L\bibinitperiod},
+           given={Kam\bibnamedelima K.},
+           giveni={K\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=609e4f754536bf25c76c25b0e2f4c895}{%
+           family={Asaka},
+           familyi={A\bibinitperiod},
+           given={Kinji},
+           giveni={K\bibinitperiod}}}%
+        {{hash=acf4449b18d090bf141e4eeeb48627d2}{%
+           family={Aabloo},
+           familyi={A\bibinitperiod},
+           given={Alvo},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{8912a275d310f59013cb8b9c8832d806}
+      \strng{fullhash}{20075a6f16ec3c03afe221c3155da2ce}
+      \strng{bibnamehash}{8912a275d310f59013cb8b9c8832d806}
+      \strng{authorbibnamehash}{8912a275d310f59013cb8b9c8832d806}
+      \strng{authornamehash}{8912a275d310f59013cb8b9c8832d806}
+      \strng{authorfullhash}{20075a6f16ec3c03afe221c3155da2ce}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Scientific Reports}
+      \field{title}{Nanothorn electrodes for ionic polymer-metal composite artificial muscles}
+      \field{volume}{4}
+      \field{year}{2014}
+    \endentry
+    \entry{porwal2015paint}{article}{}
+      \name{author}{1}{}{%
+        {{hash=ba0456ab15dd90cb0989527ab330e9b2}{%
+           family={Porwal},
+           familyi={P\bibinitperiod},
+           given={Tina},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{ba0456ab15dd90cb0989527ab330e9b2}
+      \strng{fullhash}{ba0456ab15dd90cb0989527ab330e9b2}
+      \strng{bibnamehash}{ba0456ab15dd90cb0989527ab330e9b2}
+      \strng{authorbibnamehash}{ba0456ab15dd90cb0989527ab330e9b2}
+      \strng{authornamehash}{ba0456ab15dd90cb0989527ab330e9b2}
+      \strng{authorfullhash}{ba0456ab15dd90cb0989527ab330e9b2}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Social Issues and Environmental Problems}
+      \field{number}{9}
+      \field{title}{Paint pollution harmful effects on environment}
+      \field{volume}{3}
+      \field{year}{2015}
+      \field{pages}{2394\bibrangedash 3629}
+      \range{pages}{1236}
+    \endentry
+    \entry{qwsslo18}{article}{}
+      \name{author}{6}{}{%
+        {{hash=17514ba0d6a24ee933e0f77e3a58937e}{%
+           family={Qin},
+           familyi={Q\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=cd5d9f01b3f78197de0633810bf9df04}{%
+           family={Wan},
+           familyi={W\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=c67619924cd2ecb1e99e1432d09d6dbd}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=7e7fe6a11c97079c98bd0f757119e44f}{%
+           family={Skorina},
+           familyi={S\bibinitperiod},
+           given={E.\bibnamedelimi H.},
+           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=765341ee626f43da3c3e90968af0d708}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=791d2e8f17990b91fd9bd8621bcfd1a0}{%
+           family={Onal},
+           familyi={O\bibinitperiod},
+           given={C.\bibnamedelimi D.},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{263a683db028f25a621c24a268252f94}
+      \strng{fullhash}{587a4ab3528534375ad8e502e1c5e271}
+      \strng{bibnamehash}{263a683db028f25a621c24a268252f94}
+      \strng{authorbibnamehash}{263a683db028f25a621c24a268252f94}
+      \strng{authornamehash}{263a683db028f25a621c24a268252f94}
+      \strng{authorfullhash}{587a4ab3528534375ad8e502e1c5e271}
+      \field{sortinit}{Q}
+      \field{sortinithash}{ce69a400a872ddd02ee7fdb3b38c6abd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Soft Robotics}
+      \field{number}{4}
+      \field{title}{Design, fabrication and experimental analysis of a 3-D soft robotic snake}
+      \field{volume}{5}
+      \field{year}{2018}
+      \field{pages}{448\bibrangedash 459}
+      \range{pages}{12}
+      \verb{urlraw}
+      \verb https://doi.org/10.1089/soro.2017.0073
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1089/soro.2017.0073
+      \endverb
+    \endentry
+    \entry{rt15}{article}{}
+      \name{author}{2}{}{%
+        {{hash=958cbc78b89d05defdd80aa58e19ce71}{%
+           family={Rus},
+           familyi={R\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=3b0fbaf095a56483e5175974f3870175}{%
+           family={Tolley},
+           familyi={T\bibinitperiod},
+           given={M.\bibnamedelimi T.},
+           giveni={M\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \strng{namehash}{c09f3b9a2372bc48ca61e015c492e2d6}
+      \strng{fullhash}{c09f3b9a2372bc48ca61e015c492e2d6}
+      \strng{bibnamehash}{c09f3b9a2372bc48ca61e015c492e2d6}
+      \strng{authorbibnamehash}{c09f3b9a2372bc48ca61e015c492e2d6}
+      \strng{authornamehash}{c09f3b9a2372bc48ca61e015c492e2d6}
+      \strng{authorfullhash}{c09f3b9a2372bc48ca61e015c492e2d6}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature}
+      \field{number}{7553}
+      \field{title}{Design, fabrication and control of soft robots}
+      \field{volume}{521}
+      \field{year}{2015}
+      \field{pages}{467\bibrangedash 475}
+      \range{pages}{9}
+      \verb{urlraw}
+      \verb https://doi.org/10.1038/nature14543
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1038/nature14543
+      \endverb
+    \endentry
+    \entry{Skorina2018ReversePA}{article}{}
+      \name{author}{8}{}{%
+        {{hash=6a4789ff2de9d4464768b143a9791cef}{%
+           family={Skorina},
+           familyi={S\bibinitperiod},
+           given={Erik\bibnamedelima H.},
+           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=e43542c63845b561d802a67aa23a6856}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={Ming},
+           giveni={M\bibinitperiod}}}%
+        {{hash=81799133a086b61b798506d7f55ec3d1}{%
+           family={Oo},
+           familyi={O\bibinitperiod},
+           given={Wut\bibnamedelima Yee},
+           giveni={W\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=81f987c61a46a5a4a22a26a99288ad0d}{%
+           family={Tao},
+           familyi={T\bibinitperiod},
+           given={Weijia},
+           giveni={W\bibinitperiod}}}%
+        {{hash=7a09bb305c68471aecba23a2079f04cf}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Fuchen},
+           giveni={F\bibinitperiod}}}%
+        {{hash=b357b6967630275e917ffd7108d2b3c2}{%
+           family={Youssefian},
+           familyi={Y\bibinitperiod},
+           given={Sina},
+           giveni={S\bibinitperiod}}}%
+        {{hash=109c9c24063df606416991de5985b08a}{%
+           family={Rahbar},
+           familyi={R\bibinitperiod},
+           given={Nima},
+           giveni={N\bibinitperiod}}}%
+        {{hash=465fd0804dba0ea4fec081c4b0e930ba}{%
+           family={Onal},
+           familyi={O\bibinitperiod},
+           given={Cagdas\bibnamedelima D.},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{e08e28706a3e33c8d54939e170747790}
+      \strng{fullhash}{d0b790000115bc33b2048a6059c8818c}
+      \strng{bibnamehash}{e08e28706a3e33c8d54939e170747790}
+      \strng{authorbibnamehash}{e08e28706a3e33c8d54939e170747790}
+      \strng{authornamehash}{e08e28706a3e33c8d54939e170747790}
+      \strng{authorfullhash}{d0b790000115bc33b2048a6059c8818c}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLoS ONE}
+      \field{title}{Reverse pneumatic artificial muscles (rPAMs): Modeling, integration, and control}
+      \field{volume}{13}
+      \field{year}{2018}
+    \endentry
+    \entry{wsqsglfo}{article}{}
+      \name{author}{8}{}{%
+        {{hash=a2f460674396b4d574775f044d112f80}{%
+           family={Wan},
+           familyi={W\bibinitperiod},
+           given={Zhenyu},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=f062186f353cd803a8a42f2f6bb031d6}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Yinan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=bb7dfd2ce917b9758809ce9f5f16e0a9}{%
+           family={Qin},
+           familyi={Q\bibinitperiod},
+           given={Yun},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=6a4789ff2de9d4464768b143a9791cef}{%
+           family={Skorina},
+           familyi={S\bibinitperiod},
+           given={Erik\bibnamedelima H.},
+           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=43e6435de5478b306bcb6d6b9596ad16}{%
+           family={Gasoto},
+           familyi={G\bibinitperiod},
+           given={Renato},
+           giveni={R\bibinitperiod}}}%
+        {{hash=e43542c63845b561d802a67aa23a6856}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={Ming},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f0ae8cd7eb0b07fe71e1654376c0fc0e}{%
+           family={Fu},
+           familyi={F\bibinitperiod},
+           given={Jie},
+           giveni={J\bibinitperiod}}}%
+        {{hash=465fd0804dba0ea4fec081c4b0e930ba}{%
+           family={Onal},
+           familyi={O\bibinitperiod},
+           given={Cagdas\bibnamedelima D.},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{56fe6557445b039b4302e125160c0f6a}
+      \strng{fullhash}{fc8065de1e7f88e0c3995c575400a850}
+      \strng{bibnamehash}{56fe6557445b039b4302e125160c0f6a}
+      \strng{authorbibnamehash}{56fe6557445b039b4302e125160c0f6a}
+      \strng{authornamehash}{56fe6557445b039b4302e125160c0f6a}
+      \strng{authorfullhash}{fc8065de1e7f88e0c3995c575400a850}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Soft Robotics}
+      \field{title}{Design, Analysis, and Real-Time Simulation of a 3D Soft Robotic Snake}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb http://doi.org/10.1089/soro.2021.0144
+      \endverb
+      \verb{url}
+      \verb http://doi.org/10.1089/soro.2021.0144
+      \endverb
+    \endentry
+    \entry{Wright2007DesignOA}{article}{}
+      \name{author}{9}{}{%
+        {{hash=41bae16eb148ae0d94120bb4219804c0}{%
+           family={Wright},
+           familyi={W\bibinitperiod},
+           given={Cornell},
+           giveni={C\bibinitperiod}}}%
+        {{hash=90206c754e3402f71db6bbd6c665a82e}{%
+           family={Johnson},
+           familyi={J\bibinitperiod},
+           given={Aaron\bibnamedelima M.},
+           giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=4bd437007869bf9005f4c14b597eff6b}{%
+           family={Peck},
+           familyi={P\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod}}}%
+        {{hash=5de295e3a2edd3182e9f9f8a1ee50b89}{%
+           family={McCord},
+           familyi={M\bibinitperiod},
+           given={Zachary},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=0f2f17d62bcc5b1da30412f43416c421}{%
+           family={Naaktgeboren},
+           familyi={N\bibinitperiod},
+           given={Allison},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d95cde764e4d1bc38122158c4259afad}{%
+           family={Gianfortoni},
+           familyi={G\bibinitperiod},
+           given={Philip},
+           giveni={P\bibinitperiod}}}%
+        {{hash=ea4fcb7bd8e63ec8dead6d67181fe9b8}{%
+           family={González-Rivero},
+           familyi={G\bibinithyphendelim R\bibinitperiod},
+           given={Manuel},
+           giveni={M\bibinitperiod}}}%
+        {{hash=cb1f2ed89e10b8cb3da3659b908de294}{%
+           family={Hatton},
+           familyi={H\bibinitperiod},
+           given={Ross\bibnamedelima L.},
+           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=72811108dcbc25428de5c7e317f511ed}{%
+           family={Choset},
+           familyi={C\bibinitperiod},
+           given={Howie},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{d667684418cf1f1f44bc9924daa4fbbe}
+      \strng{fullhash}{9d0e4e7d042a9dc63c2bf7aa4ad0ef40}
+      \strng{bibnamehash}{d667684418cf1f1f44bc9924daa4fbbe}
+      \strng{authorbibnamehash}{d667684418cf1f1f44bc9924daa4fbbe}
+      \strng{authornamehash}{d667684418cf1f1f44bc9924daa4fbbe}
+      \strng{authorfullhash}{9d0e4e7d042a9dc63c2bf7aa4ad0ef40}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{2007 IEEE/RSJ International Conference on Intelligent Robots and Systems}
+      \field{title}{Design of a modular snake robot}
+      \field{year}{2007}
+      \field{pages}{2609\bibrangedash 2614}
+      \range{pages}{6}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
