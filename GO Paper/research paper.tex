@@ -467,6 +467,82 @@ However, gluing two silicon parts together soon proved weak. It cannot contain t
 	\caption{Silicone part made from the finalized mold without spring.}
 \end{figure}
 
+\subsection{Wheel Revisions}
+The wheels are another heavily revised component. The design has gone through a total of four revisions to increase the speed of snake, and the numerical comparison between the first and final revision is in the Tests section. 
+
+The first and the original design makes use of machined circular acrylic plates as wheels. The L-shaped connection piece is 3D printed PLA and the axis is a long M3 screw with washers sandwiching the plastic pieces. However, the low friction between the wheel and the ground resulted in a very slow speed of the snake as the wheel constantly slips when trying to push the segments forward.
+ 
+\begin{figure} [H]
+\centering
+\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=0.6\textwidth]{wheel1side}
+		\subcaption{}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering		
+		\includegraphics[width=0.6\textwidth]{wheel1top}
+		\subcaption{}
+	\end{subfigure}
+	\caption{First (original) version of the wheel is mostly made of acrylic with a few M3 screws securing everything.}
+\end{figure}
+
+For the second version of the wheel, grooved "tires" are 3D printed with TPU filaments. TPU is a soft and flexible material, ideal for printing tires of a wheel. It is easier to print compared to other flexible materials while still offer a good coefficient of friction. However, this still wasn't successful. Although the traction of the wheels did increase, it is still not enough to push the rather heavy snake forward at a desirable speed. 
+
+\begin{figure} [H]
+\centering
+	\begin{subfigure}[b]{0.33\linewidth}
+		\centering		
+		\includegraphics[width=0.8\textwidth]{half_tire_cad}
+		\subcaption{CAD of half a tire}	
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.33\linewidth}
+		\centering
+		\includegraphics[width=0.8\textwidth]{wheel2side}
+		\subcaption{}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.33\linewidth}
+		\centering		
+		\includegraphics[width=0.8\textwidth]{wheel2top}
+		\subcaption{}
+	\end{subfigure}
+	\caption{Second version of the wheel how has a soft tire around the acrylic rim in hopes of providing more friction.}
+\end{figure}
+
+For the third version of the wheel, rather than using more custom parts, existing LEGO rubber wheel are instead used. They provide much more traction and has again increased the speed of the snake. However, although the traction is now enough, the free spinning wheel means the segment moves back really easily. Whenever force is applied to the wheel backwards from the other segments, the wheel spins and moves the segment backwards. 
+
+\begin{figure} [H]
+\centering
+\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=0.6\textwidth]{wheel3side}
+		\subcaption{}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering		
+		\includegraphics[width=0.6\textwidth]{wheel3top}
+		\subcaption{}
+	\end{subfigure}
+	\caption{Third version of the wheel provides even more traction.}
+\end{figure}
+
+In the fourth version of the wheel, it is now very hard to move backwards. Based on the design on version 3, a piece of flexible plastic sheet is added to the side of the wheel, just close enough that it fits into the grooves of the wheel. This piece of plastic prevents the wheels from rotating when a force is applied from the front without hindering the wheel from spinning when the force comes from the back. 
+
+\begin{figure} [H]
+\centering
+\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=0.6\textwidth]{wheel4side}
+		\subcaption{}
+	\end{subfigure}%
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering		
+		\includegraphics[width=0.6\textwidth]{wheel4top}
+		\subcaption{}
+	\end{subfigure}
+	\caption{Fourth version of the wheel is now almost a ratchet. }
+\end{figure}
+
 \subsection{Airway}
 There is one overall air pump that sends air through the clear PVC tubing, and this pump is capable of exerting 12kPa. The air from the pump is them separated into tubing for each segment and then each solenoid valve. The valve tubing is then connected to a custom-printed valve core that ensures an air-tight seal between the tubing and the silicon chamber. There are two states of the solenoid valve and when it is powered, the air flows into the silicon chamber, and when the valve is not powered, the air flows out from the chamber. When the top and the left solenoid valve is powered, the air flows into those two chambers and bents this segment towards the right and when the top and the right solenoid valve are powered, the segment bends left. 
 
@@ -564,9 +640,9 @@ This motion is controlled by the front ESP32CAM module, which recieves signal fr
 	\end{subfigure}
 	\caption{The progression of snake's movement over time represented by variations of a standard \(y=\sin(x)\) graph.}
 \end{figure}
-The main module determines which direction to curve each segment (or leave in neutral state) with the function \(y=A\sin(B\times x - C) + D\). \(A\) is the amplitude of the function, in this case, it is proportional to how wave the snake curves. \(B\) is the frequency of the function, that is, how horizontally compressed the function is, a larger \(B\) value means more curves in the same length of the robot. \(D\) is neglected in this function because it does affect the direction of travel. \(C\) is the horizontal shift of the function. In the case of the robot, this value is unique to each segment in order for the snake to move like a sine function. Each segment is slight offset to the right of the previous segment, which means that the segment will follow the motion of the previous. Thus, when all segments are combined, the snake forms a moving sine function. Because \(y=\sin(x)\) is a periodic function with a period of 2\(\pi\)/\(Speed\), the value of \(rads\) cycles through 0\degree to 360\degree . In the context of this code, the sine function is as follows. 
-\centerline{\(k = \sin(Speed \times rads + id \times shift)\)}
-Upon receiving a new \(rads\) value from the main module, each segment will calculate its own \(k\) value and perform the corresponding action depending on the value. I evenly divided the function into three parts; if \(k\) is within 1/6 and 1/2, the segment turns left; if it is within -1/6 and -1/2, the segment turns right; otherwise it stays neutral. When staying neutral, the segment will unpower all solenoid valves to release all chambers and have the silicon part return to neutral position. If the segment is turing left, the top and right solenoid valve will close and those two chambers will inflate, making the segment curve to the left. Similarly, if the segment is turning right, the top and left solenoid valve will close so the segment curves to the right. 
+The main module determines which direction to curve each segment (or leave in neutral state) with the function \(y=A\sin(B\times x - C) + D\) \cite{Luo2020Motion, Wan2023Design, Luo2018OriSnake}. \(A\) is the amplitude of the function, in this case, it is proportional to how wave the snake curves. \(B\) is the frequency of the function, that is, how horizontally compressed the function is, a larger \(B\) value means more curves in the same length of the robot. \(D\) is neglected in this function because it does affect the direction of travel. \(C\) is the horizontal shift of the function. In the case of the robot, this value is unique to each segment in order for the snake to move like a sine function. Each segment is slight offset to the right of the previous segment, which means that the segment will follow the motion of the previous. Thus, when all segments are combined, the snake forms a moving sine function. Because \(y=\sin(x)\) is a periodic function with a period of 2\(\pi\)/\(Speed\), the value of \(rads\) cycles through 0\degree to 360\degree . In the context of this code, the sine function is as follows. 
+
+\centerline{\(k = \sin(Speed \times rads + id \times shift)\)}Upon receiving a new \(rads\) value from the main module, each segment will calculate its own \(k\) value and perform the corresponding action depending on the value. I evenly divided the function into three parts; if \(k\) is within 1/6 and 1/2, the segment turns left; if it is within -1/6 and -1/2, the segment turns right; otherwise it stays neutral. When staying neutral, the segment will unpower all solenoid valves to release all chambers and have the silicon part return to neutral position. If the segment is turning left, the top and right solenoid valve will close and those two chambers will inflate, making the segment curve to the left. Similarly, if the segment is turning right, the top and left solenoid valve will close so the segment curves to the right. 
 
 
 \begin{figure} [H]
@@ -649,12 +725,12 @@ I first tested the performance of a single segment in real life. The first test 
 	Image & \includegraphics[align=c, scale=0.2]{1} & \includegraphics[align=c, scale=0.2]{2} & \includegraphics[align=c, scale=0.2]{3}\\
 	\hline
 	\end{tabular}
-	\caption{- Screenshots of the segment inflating}
+	\caption{Screenshots of the segment inflating}
 \end{table}
 I filmed an top-down video of the first segment of the snake inflating and then imported into the software called Tracker from physlets.org to collect the data from the video. I first imported the video into the software. Then, I added a coordinate axis and aligned the y-axis along the snake. Measuring that the distance between the wheels of different segments to be 0.116 meters, I added a calibration stick to set the reference. Then I added a point mass tracking point and ran the autotracker. After testing, I plotted the x position relative to the time and the trend seems to be logarithmic. The maximum distance is 3.62cm at t=3.44s.
 \begin{figure} [H]
 \centering
-\includegraphics[width=0.5\textwidth]{single seg}
+\includegraphics[width=0.8\textwidth]{single seg}
 \caption{x position of the point relative to time}
 \end{figure}
 
@@ -676,13 +752,13 @@ Similar to the single segment test, I filmed an top-down video of the first segm
 \end{table}
 \begin{figure} [H]
 \centering
-\includegraphics[width=0.5\textwidth]{two seg}
+\includegraphics[width=0.8\textwidth]{two seg}
 \caption{x position of the point relative to time}
 \end{figure}
 
+\subsection{First Version Wheel Speed Test}
 
-\subsection{Entire Snake Test}
-For this test, I followed similar procedures as the previous tests. The snake traveled 10.05cm in 14.74s with a speed of 0.68cm/s. The most likely cause of the decrease in rate after t=20s is due to the distortion of the video as it is now filming the snake at an angle. 
+For this test, I followed similar procedures as the previous tests and used wheels from the first version. The snake traveled 10.05cm in 14.74s with a speed of 0.68cm/s. The most likely cause of the decrease in rate after t=20s is due to the distortion of the video as it is now filming the snake at an angle. 
 
 \begin{table} [H]
 	\centering
@@ -695,16 +771,40 @@ For this test, I followed similar procedures as the previous tests. The snake tr
 	Image & \includegraphics[align=c, scale=0.2]{5} & \includegraphics[align=c, scale=0.2]{10} & \includegraphics[align=c, scale=0.2]{15} & \includegraphics[align=c, scale=0.2]{20}\\
 	\hline
 	\end{tabular}
-	\caption{- Screenshots of the segment in motion}
+	\caption{Screenshots of the segment in motion}
 \end{table}
 
 \begin{figure} [H]
 \centering
-\includegraphics[width=0.4\textwidth]{4 seg snake}
+\includegraphics[width=0.8\textwidth]{4 seg snake}
+\caption{Distance traveled by the snake over time}
+\end{figure}
+\subsection{Final Version Wheel Speed Test}
+
+I also ran the same test with the final version of the wheel to better compare the two versions. For this test, I followed the same procedures as the previous tests with the latest version of wheels. The snake traveled 33.07cm in 14.73s with a speed of 2.25cm/s. This is 331\% ($\frac{2.25cm/s}{0.68m/s}=3.31$) of the speed of the first version.
+
+\begin{table} [H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	Time (s) & 5 & 10 & 15 & 20\\
+	\hline
+	$\Delta$x (cm) & 11.09 & 22.12 & 33.72 & 43.41\\
+	\hline
+	Image & \includegraphics[align=c, scale=0.2, angle=90]{5_2} & \includegraphics[align=c, scale=0.2, angle=90]{10_2} & \includegraphics[align=c, scale=0.2, angle=90]{15_2} & \includegraphics[align=c, scale=0.2, angle=90]{20_2}\\
+	\hline
+	\end{tabular}
+	\caption{Screenshots of the segment in motion}
+\end{table}
+
+\begin{figure} [H]
+\centering
+\includegraphics[width=0.8\textwidth]{full_snake_improve}
 \caption{Distance traveled by the snake over time}
 \end{figure}
 
 \section{Conclusion}
+
 During this project, the basic functionalities of a robotic snake has been achieved. An improved mold for the silicone body was designed, and the idea of using detachable inner pillars can be implemented elsewhere as well in similar situations where an airtight seal was required. This single-opening silicone silicone design with an air valve minimized the chance of leakage. To find the optimal parameters, physics simulations were ran to determine the best wall thickness and diameter of the silicone part. The modularity of snake segments was also achieved with independent control units and the I2C protocol, which allows for multiple connection using the same bus. The basic functionality of video stream and remote control has also been achieved. Finally, to test the finished product, two sets of test were performed and measurements were taken. 
 
 However, this project did not achieve everything planned at the beginning. It only achieved the basic function of the robot, yet it is lacking a lot of software to support it. The implementation of an AI image recognition system is crucial as well as a purely image-based mapping system is also yet to be done. A coordinate system is also necessary to know the actual location of the snake. Without these, the robot cannot achieve its full potential as a life-saving device. Apart from the software, the silicon body design will also need to be improved as the current design does not make use of the pull potential of the air pressure. The movement algorithm can also be improved as right now the robot moves rather slowly.

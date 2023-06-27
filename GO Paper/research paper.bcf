@@ -2371,6 +2371,9 @@
     <bcf:citekey order="20" intorder="1">Onal2013AutonomousUS</bcf:citekey>
     <bcf:citekey order="21" intorder="1">Skorina2018ReversePA</bcf:citekey>
     <bcf:citekey order="22" intorder="1">qwsslo18</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">Luo2020Motion</bcf:citekey>
+    <bcf:citekey order="23" intorder="2">Wan2023Design</bcf:citekey>
+    <bcf:citekey order="23" intorder="3">Luo2018OriSnake</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

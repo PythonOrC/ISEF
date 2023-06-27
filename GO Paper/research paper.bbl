@@ -441,6 +441,7 @@
       \strng{authorbibnamehash}{6e71e05288279ef10c68c4cad52e0bff}
       \strng{authornamehash}{6e71e05288279ef10c68c4cad52e0bff}
       \strng{authorfullhash}{b99e8b375b6165664566cfd5c63c11cf}
+      \field{extraname}{1}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
       \field{labelnamesource}{author}
@@ -457,6 +458,141 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.3389/frobt.2020.599242
+      \endverb
+    \endentry
+    \entry{Luo2020Motion}{article}{}
+      \name{author}{9}{}{%
+        {{hash=e43542c63845b561d802a67aa23a6856}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={Ming},
+           giveni={M\bibinitperiod}}}%
+        {{hash=a2f460674396b4d574775f044d112f80}{%
+           family={Wan},
+           familyi={W\bibinitperiod},
+           given={Zhenyu},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=f062186f353cd803a8a42f2f6bb031d6}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Yinan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=6a4789ff2de9d4464768b143a9791cef}{%
+           family={Skorina},
+           familyi={S\bibinitperiod},
+           given={Erik\bibnamedelima H.},
+           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=81f987c61a46a5a4a22a26a99288ad0d}{%
+           family={Tao},
+           familyi={T\bibinitperiod},
+           given={Weijia},
+           giveni={W\bibinitperiod}}}%
+        {{hash=7a09bb305c68471aecba23a2079f04cf}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Fuchen},
+           giveni={F\bibinitperiod}}}%
+        {{hash=7a1f972fd6f4b00682ecb401826187fa}{%
+           family={Gopalka},
+           familyi={G\bibinitperiod},
+           given={Lakshay},
+           giveni={L\bibinitperiod}}}%
+        {{hash=ffc6e98cdb5fcaae9b79cd4ce7d15efa}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Hao},
+           giveni={H\bibinitperiod}}}%
+        {{hash=465fd0804dba0ea4fec081c4b0e930ba}{%
+           family={Onal},
+           familyi={O\bibinitperiod},
+           given={Cagdas\bibnamedelima D.},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{eeef469e4fde030f3307348742b277bc}
+      \strng{fullhash}{b3be9937f1a4695c5a648eb58fddab99}
+      \strng{bibnamehash}{eeef469e4fde030f3307348742b277bc}
+      \strng{authorbibnamehash}{eeef469e4fde030f3307348742b277bc}
+      \strng{authornamehash}{eeef469e4fde030f3307348742b277bc}
+      \strng{authorfullhash}{b3be9937f1a4695c5a648eb58fddab99}
+      \field{extraname}{2}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Snake robotics is an important research topic with a wide range of applications, including inspection in confined spaces, search-and-rescue, and disaster response. Snake robots are well-suited to these applications because of their versatility and adaptability to unstructured and constrained environments. In this paper, we introduce a soft pneumatic robotic snake that can imitate the capabilities of biological snakes, its soft body can provide flexibility and adaptability to the environment. This paper combines soft mobile robot modeling, proprioceptive feedback control, and motion planning to pave the way for functional soft robotic snake autonomy. We propose a pressure-operated soft robotic snake with a high degree of modularity that makes use of customized embedded flexible curvature sensing. On this platform, we introduce the use of iterative learning control using feedback from the on-board curvature sensors to enable the snake to automatically correct its gait for superior locomotion. We also present a motion planning and trajectory tracking algorithm using an adaptive bounding box, which allows for efficient motion planning that still takes into account the kinematic state of the soft robotic snake. We test this algorithm experimentally, and demonstrate its performance in obstacle avoidance scenarios.}
+      \field{issn}{2296-9144}
+      \field{journaltitle}{Frontiers in Robotics and AI}
+      \field{title}{Motion Planning and Iterative Learning Control of a Modular Soft Robotic Snake}
+      \field{volume}{7}
+      \field{year}{2020}
+      \verb{doi}
+      \verb 10.3389/frobt.2020.599242
+      \endverb
+      \verb{urlraw}
+      \verb https://www.frontiersin.org/articles/10.3389/frobt.2020.599242
+      \endverb
+      \verb{url}
+      \verb https://www.frontiersin.org/articles/10.3389/frobt.2020.599242
+      \endverb
+    \endentry
+    \entry{Luo2018OriSnake}{article}{}
+      \name{author}{7}{}{%
+        {{hash=e43542c63845b561d802a67aa23a6856}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={Ming},
+           giveni={M\bibinitperiod}}}%
+        {{hash=8efb3519e43dc6c09005f39fd419bc9e}{%
+           family={Yan},
+           familyi={Y\bibinitperiod},
+           given={Ruibo},
+           giveni={R\bibinitperiod}}}%
+        {{hash=a2f460674396b4d574775f044d112f80}{%
+           family={Wan},
+           familyi={W\bibinitperiod},
+           given={Zhenyu},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=bb7dfd2ce917b9758809ce9f5f16e0a9}{%
+           family={Qin},
+           familyi={Q\bibinitperiod},
+           given={Yun},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=43a3459da1ebc44ee2dd48e96ab2e65c}{%
+           family={Santoso},
+           familyi={S\bibinitperiod},
+           given={Junius},
+           giveni={J\bibinitperiod}}}%
+        {{hash=6a4789ff2de9d4464768b143a9791cef}{%
+           family={Skorina},
+           familyi={S\bibinitperiod},
+           given={Erik\bibnamedelima H.},
+           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=465fd0804dba0ea4fec081c4b0e930ba}{%
+           family={Onal},
+           familyi={O\bibinitperiod},
+           given={Cagdas\bibnamedelima D.},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{eeef469e4fde030f3307348742b277bc}
+      \strng{fullhash}{cc24ad1acfaef1dc6374f1dc00877f07}
+      \strng{bibnamehash}{eeef469e4fde030f3307348742b277bc}
+      \strng{authorbibnamehash}{eeef469e4fde030f3307348742b277bc}
+      \strng{authornamehash}{eeef469e4fde030f3307348742b277bc}
+      \strng{authorfullhash}{cc24ad1acfaef1dc6374f1dc00877f07}
+      \field{extraname}{3}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Robotics and Automation Letters}
+      \field{number}{3}
+      \field{title}{OriSnake: Design, Fabrication, and Experimental Analysis of a 3-D Origami Snake Robot}
+      \field{volume}{3}
+      \field{year}{2018}
+      \field{pages}{1993\bibrangedash 1999}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1109/LRA.2018.2800112
       \endverb
     \endentry
     \entry{m18}{article}{}
@@ -849,6 +985,7 @@
       \strng{authorbibnamehash}{56fe6557445b039b4302e125160c0f6a}
       \strng{authornamehash}{56fe6557445b039b4302e125160c0f6a}
       \strng{authorfullhash}{fc8065de1e7f88e0c3995c575400a850}
+      \field{extraname}{1}
       \field{sortinit}{W}
       \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{labelnamesource}{author}
@@ -861,6 +998,82 @@
       \endverb
       \verb{url}
       \verb http://doi.org/10.1089/soro.2021.0144
+      \endverb
+    \endentry
+    \entry{Wan2023Design}{article}{}
+      \name{author}{8}{}{%
+        {{hash=a2f460674396b4d574775f044d112f80}{%
+           family={Wan},
+           familyi={W\bibinitperiod},
+           given={Zhenyu},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=f062186f353cd803a8a42f2f6bb031d6}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Yinan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=bb7dfd2ce917b9758809ce9f5f16e0a9}{%
+           family={Qin},
+           familyi={Q\bibinitperiod},
+           given={Yun},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=6a4789ff2de9d4464768b143a9791cef}{%
+           family={Skorina},
+           familyi={S\bibinitperiod},
+           given={Erik\bibnamedelima H.},
+           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=43e6435de5478b306bcb6d6b9596ad16}{%
+           family={Gasoto},
+           familyi={G\bibinitperiod},
+           given={Renato},
+           giveni={R\bibinitperiod}}}%
+        {{hash=e43542c63845b561d802a67aa23a6856}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={Ming},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f0ae8cd7eb0b07fe71e1654376c0fc0e}{%
+           family={Fu},
+           familyi={F\bibinitperiod},
+           given={Jie},
+           giveni={J\bibinitperiod}}}%
+        {{hash=465fd0804dba0ea4fec081c4b0e930ba}{%
+           family={Onal},
+           familyi={O\bibinitperiod},
+           given={Cagdas\bibnamedelima D.},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{56fe6557445b039b4302e125160c0f6a}
+      \strng{fullhash}{fc8065de1e7f88e0c3995c575400a850}
+      \strng{bibnamehash}{56fe6557445b039b4302e125160c0f6a}
+      \strng{authorbibnamehash}{56fe6557445b039b4302e125160c0f6a}
+      \strng{authornamehash}{56fe6557445b039b4302e125160c0f6a}
+      \strng{authorfullhash}{fc8065de1e7f88e0c3995c575400a850}
+      \field{extraname}{2}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Snakes are a remarkable source of inspiration for mobile search-and-rescue robots. Their unique slender body structure and multiple modes of locomotion are well-suited to movement in narrow passages and other difficult terrain. The design, manufacturing, modeling, and control techniques of soft robotics make it possible to imitate the structure, mechanical properties, and locomotion gaits of snakes, opening up new possibilities in robotics research. Building on our track record of contributions in this area, this article presents a soft robotic snake made of modules that can actively deform in three-dimensional (3D) and rigorously studies its performance under a range of conditions, including gait parameters, number of modules, and differences in the environment. A soft 3D-printed wave spring sheath is developed to support the robot modules, increasing the snake's performance in climbing steps threefold. Finally, we introduce a simulator and a numerical model to provide a real-time simulation of the soft robotic snake. With the help of the real-time simulator, it is possible to develop and test new locomotion gaits for the soft robotic snake within a short period of time, compared with experimental trial and error. As a result, the soft robotic snake presented in this article is able to locomote on different surfaces, perform different bioinspired and custom gaits, and climb over steps.}
+      \field{journaltitle}{Soft Robotics}
+      \field{note}{PMID: 35976088}
+      \field{number}{2}
+      \field{title}{Design, Analysis, and Real-Time Simulation of a 3D Soft Robotic Snake}
+      \field{volume}{10}
+      \field{year}{2023}
+      \field{pages}{258\bibrangedash 268}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1089/soro.2021.0144
+      \endverb
+      \verb{eprint}
+      \verb https://doi.org/10.1089/soro.2021.0144
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1089/soro.2021.0144
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1089/soro.2021.0144
       \endverb
     \endentry
     \entry{Wright2007DesignOA}{article}{}
